@@ -33,36 +33,36 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* 🏛️ 1. संस्थान परिचय सेक्शन */
-        .intro-section { max-width: 1140px; margin: 30px auto; padding: 0 20px; }
+        /* 🏛️ 1. संस्थान परिचय सेक्शन (फ़ॉन्ट और स्पेसिंग कम की गई) */
+        .intro-section { max-width: 1140px; margin: 25px auto; padding: 0 20px; }
         .intro-card { 
             background: #ffffff; 
-            border-radius: 20px; 
-            padding: 30px; 
-            box-shadow: 0 4px 25px rgba(0,0,0,0.03); 
-            border-left: 6px solid var(--brand-green);
+            border-radius: 16px; 
+            padding: 22px 25px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
+            border-left: 5px solid var(--brand-green);
             border-top: 1px solid #f1f5f9;
             border-right: 1px solid #f1f5f9;
             border-bottom: 1px solid #f1f5f9;
             transition: all 0.4s ease;
         }
         .intro-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(17, 83, 46, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(17, 83, 46, 0.08);
         }
         .intro-title { 
-            font-size: 22px; 
+            font-size: 19px; /* पहले 22px था */
             color: var(--brand-green); 
             font-weight: 700; 
-            margin-bottom: 15px; 
+            margin-bottom: 10px; 
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         .intro-text { 
-            font-size: 15px; 
+            font-size: 14px; /* पहले 15px था */
             color: #334155; 
-            line-height: 1.8; 
+            line-height: 1.6; /* पहले 1.8 था */
             text-align: justify;
         }
         .intro-highlight {
@@ -71,42 +71,42 @@
         }
 
         /* 📸 2. मॉडर्न इमेज गैलरी ग्रिड */
-        .gallery-section { max-width: 1140px; margin: 40px auto; padding: 0 20px; }
+        .gallery-section { max-width: 1140px; margin: 30px auto; padding: 0 20px; }
         .gallery-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 25px; 
+            gap: 20px; 
         }
         .gallery-item { 
             background: #ffffff; 
-            border-radius: 16px; 
+            border-radius: 14px; 
             overflow: hidden; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02); 
             border: 1px solid #e2e8f0;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.15, 0.85, 0.45, 1);
         }
         .gallery-item:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 20px 35px rgba(17,83,46,0.12);
+            transform: translateY(-6px); 
+            box-shadow: 0 15px 30px rgba(17,83,46,0.1);
             border-color: var(--brand-green);
         }
-        .gallery-img-box { width: 100%; height: 240px; overflow: hidden; }
+        .gallery-img-box { width: 100%; height: 230px; overflow: hidden; }
         .gallery-img-box img { 
             width: 100%; 
             height: 100%; 
             object-fit: cover; 
             transition: transform 0.6s ease;
         }
-        .gallery-item:hover .gallery-img-box img { transform: scale(1.06); }
+        .gallery-item:hover .gallery-img-box img { transform: scale(1.05); }
 
         /* 🔗 3. पंजीकरण क्विक लिंक स्ट्रिप */
         .link-strip { 
             background: linear-gradient(135deg, #11532e, #1a7442); 
-            padding: 18px 20px; 
+            padding: 15px 20px; 
             text-align: center; 
-            margin: 40px 0;
-            box-shadow: 0 4px 15px rgba(17,83,46,0.15);
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(17,83,46,0.12);
         }
         .strip-btn { 
             display: inline-flex;
@@ -115,11 +115,11 @@
             background: #ffffff; 
             color: var(--brand-green); 
             text-decoration: none; 
-            padding: 12px 28px; 
+            padding: 10px 24px; 
             border-radius: 30px; 
             font-weight: 700; 
-            font-size: 14.5px; 
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            font-size: 13.5px; /* पहले 14.5px था */
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
             animation: buttonPulse 2s infinite;
@@ -128,7 +128,7 @@
         
         @keyframes buttonPulse {
             0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-            70% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
@@ -152,57 +152,55 @@
         .strip-btn:hover { 
             background: var(--brand-dark-green); 
             color: #ffffff; 
-            transform: scale(1.04); 
+            transform: scale(1.03); 
         }
 
         /* 📺 4. वीडियो सेक्शन */
-        .video-section { max-width: 800px; margin: 40px auto; padding: 0 20px; text-align: center; }
-        .video-title { font-size: 20px; font-weight: 700; margin-bottom: 20px; color: var(--brand-dark-green); }
+        .video-section { max-width: 800px; margin: 35px auto; padding: 0 20px; text-align: center; }
+        .video-title { font-size: 18px; /* पहले 20px था */ font-weight: 700; margin-bottom: 15px; color: var(--brand-dark-green); }
         .video-wrapper { 
             position: relative; 
             padding-bottom: 56.25%; 
             height: 0; 
             overflow: hidden; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            border-radius: 16px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             border: 4px solid #ffffff;
             transition: transform 0.4s ease;
         }
-        .video-wrapper:hover {
-            transform: scale(1.01);
-        }
+        .video-wrapper:hover { transform: scale(1.01); }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* 📱 5. सोशल मीडिया कनेक्ट (डिज़ाइन गड़बड़ यहाँ से ठीक हुई) */
-        .social-section { text-align: center; margin: 50px auto; padding: 0 20px; }
-        .social-text { font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 15px; font-style: italic; }
-        .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        /* 📱 5. सोशल मीडिया कनेक्ट */
+        .social-section { text-align: center; margin: 40px auto; padding: 0 20px; }
+        .social-text { font-size: 13px; /* पहले 14px था */ font-weight: 600; color: var(--text-muted); margin-bottom: 12px; font-style: italic; }
+        .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
         .social-icon { 
-            width: 45px; 
-            height: 45px; 
+            width: 40px; /* पहले 45px था */
+            height: 40px; 
             border-radius: 50%; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             color: #ffffff; 
             text-decoration: none; 
-            font-size: 20px; 
+            font-size: 18px; /* पहले 20px था */
             transition: all 0.4s cubic-bezier(0.15, 0.85, 0.45, 1); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
         .social-icon.fb { background: #1877f2; }
         .social-icon.insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .social-icon.yt { background: #ff0000; }
         .social-icon.x { background: #000000; }
-        .social-icon:hover { transform: translateY(-6px) rotate(360deg); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .social-icon:hover { transform: translateY(-5px) rotate(360deg); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
 
-        /* 🏢 6. एलीट कॉर्पोरेट फुटर */
+        /* 🏢 6. एलीट कॉर्पोरेट फुटर (लाइन स्पेसिंग सुधारी गई) */
         .footer-section { 
             background: #0b3a20; 
             color: #ffffff; 
-            padding: 40px 20px; 
+            padding: 30px 20px; /* पहले 40px था */
             border-top: 4px solid var(--brand-gold);
-            margin-top: 40px;
+            margin-top: 35px;
             text-align: left;
         }
         .footer-container { 
@@ -210,26 +208,39 @@
             margin: 0 auto; 
             display: flex; 
             flex-direction: column; 
-            gap: 20px;
+            gap: 15px;
         }
         .footer-title { 
-            font-size: 18px; 
+            font-size: 16.5px; /* पहले 18px था */
             font-weight: 700; 
             color: var(--brand-gold); 
             border-bottom: 1px dashed rgba(212,175,55,0.3);
-            padding-bottom: 10px;
-            margin-bottom: 5px;
+            padding-bottom: 8px;
+            margin-bottom: 3px;
         }
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 20px;
         }
-        .footer-info-item { display: flex; gap: 12px; font-size: 14.5px; line-height: 1.6; align-items: flex-start; }
-        .footer-info-item i { color: var(--brand-gold); font-size: 16px; margin-top: 4px; }
+        .footer-info-item { 
+            display: flex; 
+            gap: 10px; 
+            font-size: 13.5px; /* पहले 14.5px था */
+            line-height: 1.4; /* पहले 1.6 था (लाइन स्पेस कम) */
+            align-items: flex-start; 
+        }
+        .footer-info-item i { color: var(--brand-gold); font-size: 14px; margin-top: 3px; }
         .footer-info-item a { color: #ffffff; text-decoration: none; transition: color 0.2s; }
         .footer-info-item a:hover { color: var(--brand-gold); }
-        .footer-bottom { text-align: center; font-size: 12.5px; color: rgba(255,255,255,0.5); border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; margin-top: 15px; }
+        .footer-bottom { 
+            text-align: center; 
+            font-size: 12px; 
+            color: rgba(255,255,255,0.5); 
+            border-top: 1px solid rgba(255,255,255,0.08); 
+            padding-top: 15px; 
+            margin-top: 10px; 
+        }
 
         /* 🔍 इमेज लाइटबॉक्स पॉपअप मॉडल */
         .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; display: none; justify-content: center; align-items: center; padding: 20px; }
@@ -247,10 +258,10 @@
         .lightbox-close { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 35px; cursor: pointer; font-weight: bold; }
 
         @media (max-width: 650px) {
-            .gallery-grid { grid-template-columns: 1fr; gap: 20px; }
-            .gallery-img-box { height: 200px; }
-            .intro-card { padding: 20px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+            .gallery-grid { grid-template-columns: 1fr; gap: 15px; }
+            .gallery-img-box { height: 190px; }
+            .intro-card { padding: 18px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 15px; }
         }
 
         ::selection {
