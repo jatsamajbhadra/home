@@ -205,49 +205,49 @@
         </div>
     </div>
 
-    <!-- 2. मॉडर्न इमेज गैलरी सेक्शन (आपकी दोनों असली तस्वीरों के साथ) -->
+    <!-- 2. मॉडर्न इमेज गैलरी सेक्शन (Lazy Loading के साथ) -->
     <div class="gallery-section">
         <div class="gallery-grid">
             <div class="gallery-item" onclick="openLightbox('FB_IMG_1783181660134.jpg')">
                 <div class="gallery-img-box">
-                    <img src="FB_IMG_1783181660134.jpg" alt="जाट समाज जनसभा भादरा">
+                    <img src="FB_IMG_1783181660134.jpg" loading="lazy" alt="जाट समाज जनसभा भादरा">
                 </div>
             </div>
             <div class="gallery-item" onclick="openLightbox('FB_IMG_1783181602074.jpg')">
                 <div class="gallery-img-box">
-                    <img src="FB_IMG_1783181602074.jpg" alt="अंतरराष्ट्रीय जाट दिवस समारोह">
+                    <img src="FB_IMG_1783181602074.jpg" loading="lazy" alt="अंतरराष्ट्रीय जाट दिवस समारोह">
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 3. पंजीकरण क्विक लिंक स्ट्रिप (सही गूगल फॉर्म लिंक) -->
+    <!-- 3. पंजीकरण क्विक लिंक स्ट्रिप (सुरक्षित सिक्योरिटी टैग के साथ) -->
     <div class="link-strip">
-        <a href="https://forms.gle/9vamSkStgjZPdUUz8" target="_blank" class="strip-btn">
+        <a href="https://forms.gle/9vamSkStgjZPdUUz8" target="_blank" rel="noopener noreferrer" class="strip-btn">
             <i class="fa-solid fa-user-plus"></i> राइजिंग जाट यूथ फाउंडेशन (RJYF) पंजीकरण लिंक
         </a>
     </div>
 
-    <!-- 4. वीडियो सेक्शन (सही यूट्यूब वीडियो कड़ियों के साथ) -->
+    <!-- 4. वीडियो सेक्शन (यूट्यूब कंपैटिबिलिटी और Lazy Loading के साथ) -->
     <div class="video-section">
         <h3 class="video-title"><i class="fa-solid fa-video"></i> किसान मसीहा चौधरी कुंभाराम आर्य - शार्ट फिल्म</h3>
         <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/QJrT_F44jzE" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/QJrT_F44jzE" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- 5. सोशल मीडिया कनेक्ट -->
+    <!-- 5. सोशल मीडिया कनेक्ट (सभी लिंक्स में सुरक्षा टैग जोड़े गए हैं) -->
     <div class="social-section">
         <p class="social-text">नीचे दिए बटन पर क्लिक कर संस्थान के सोशल मीडिया अकाउंट से जुड़ सकते हैं</p>
         <div class="social-links">
-            <a href="https://www.facebook.com/share/1HNXS2kwGy/" target="_blank" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/jatsamajbhadra?igsh=aGVvZG82ZXdjdHFw" target="_blank" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://youtube.com/@jatsamajbhadra?si=WNf8LOE0ijt57WKV" target="_blank" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://x.com/jatsamajbhadra" target="_blank" class="social-icon x"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/share/1HNXS2kwGy/" target="_blank" rel="noopener noreferrer" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/jatsamajbhadra?igsh=aGVvZG82ZXdjdHFw" target="_blank" rel="noopener noreferrer" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@jatsamajbhadra?si=WNf8LOE0ijt57WKV" target="_blank" rel="noopener noreferrer" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://x.com/jatsamajbhadra" target="_blank" rel="noopener noreferrer" class="social-icon x"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
     </div>
 
-    <!-- 6. एलीट कॉर्पोरेट फुटर -->
+    <!-- 6. एलीट कॉर्पोरेट फुटर (अपडेटेड कॉपीराइट वर्ष) -->
     <div class="footer-section">
         <div class="footer-container">
             <h3 class="footer-title">Contact Us (संपर्क सूत्र)</h3>
@@ -275,7 +275,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2026 जाट समाज संस्थान भादरा। सर्वाधिकार सुरक्षित।
+                &copy; 2025-2026 जाट समाज संस्थान भादरा। सर्वाधिकार सुरक्षित।
             </div>
         </div>
     </div>
@@ -286,7 +286,7 @@
         <img class="lightbox-img" id="lightboxTarget" src="" alt="Zoomed Image">
     </div>
 
-    <!-- 🛠️ सुधरा हुआ परफेक्ट जावास्क्रिप्ट कोड -->
+    <!-- स्क्रिप्ट टैग -->
     <script>
         function openLightbox(imgUrl) {
             document.getElementById('lightboxTarget').src = imgUrl;
