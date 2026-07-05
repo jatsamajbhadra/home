@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RJYF - राइजिंग जाट यूथ फाउंडेशन</title>
-    <!-- Font Awesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
         :root {
             --brand-green: #11532e;
             --brand-dark-green: #0b3a20;
@@ -29,15 +24,11 @@
             padding-bottom: 20px;
         }
 
-        /* 🗂️ 3-in-1 टैब नेविगेशन बार स्टाइल */
+        /* 🗂️ 3-in-1 असली टैब नेविगेशन बार */
         .tabs-container {
             max-width: 1140px;
-            margin: 15px auto 10px auto;
+            margin: 15px auto 15px auto;
             padding: 0 15px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background-color: var(--light-bg);
         }
         .tabs-nav {
             display: flex;
@@ -61,7 +52,6 @@
             justify-content: center;
             gap: 8px;
             transition: all 0.2s ease;
-            text-decoration: none;
         }
         .tab-btn:not(:last-child) {
             border-right: 1px solid #e2e8f0;
@@ -76,15 +66,24 @@
             border-bottom: 3px solid var(--brand-gold);
         }
 
-        /* 🚀 डायनेमिक कंटेंट एरिया स्टाइल */
+        /* 🚀 कंटेंट एरिया (बाकी सेक्शन छिपाने के लिए) */
         .content-container {
             max-width: 1140px;
             margin: 0 auto;
             padding: 0 15px;
         }
+        
+        /* शुरुआत में सभी पैनल छिपे रहेंगे, केवल एक्टिव दिखेगा */
         .tab-panel {
-            padding-top: 10px;
-            margin-bottom: 30px;
+            display: none;
+        }
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* 🏛️ कार्ड्स और लेआउट */
@@ -240,26 +239,23 @@
 </head>
 <body>
 
-    <!-- 🗂️ 3-in-1 नेविगेशन बार (बिना जावास्क्रिप्ट के सीधे काम करने वाला) -->
     <div class="tabs-container">
         <nav class="tabs-nav">
-            <a href="#main-rjyf" class="tab-btn active" id="btn-rjyf" onclick="highlightTab('btn-rjyf')">
+            <button class="tab-btn active" id="btn-rjyf" onclick="openTab('main-rjyf', 'btn-rjyf')">
                 <i class="fa-solid fa-building-columns"></i> RJYF
-            </a>
-            <a href="#reg-form" class="tab-btn" id="btn-reg" onclick="highlightTab('btn-reg')">
+            </button>
+            <button class="tab-btn" id="btn-reg" onclick="openTab('reg-form', 'btn-reg')">
                 <i class="fa-solid fa-pen-to-square"></i> पंजीकरण फॉर्म
-            </a>
-            <a href="#members-list" class="tab-btn" id="btn-members" onclick="highlightTab('btn-members')">
+            </button>
+            <button class="tab-btn" id="btn-members" onclick="openTab('members-list', 'btn-members')">
                 <i class="fa-solid fa-users"></i> रजिस्टर्ड सदस्य
-            </a>
+            </button>
         </nav>
     </div>
 
-    <!-- 🚀 कंटेंट एरिया -->
     <div class="content-container">
         
-        <!-- अनुभाग 1: RJYF का परिचय -->
-        <div id="main-rjyf" class="tab-panel">
+        <div id="main-rjyf" class="tab-panel active">
             <div class="yellow-box">
                 <h2 class="panel-title">हमारे बारे में (About Us):</h2>
                 <p class="panel-text" style="font-weight: 600;">
@@ -291,7 +287,6 @@
             </div>
         </div>
 
-        <!-- अनुभाग 2: पंजीकरण फॉर्म -->
         <div id="reg-form" class="tab-panel">
             <div class="yellow-box">
                 <h2 class="panel-title">Steps for Registration :</h2>
@@ -303,7 +298,7 @@
             </div>
 
             <div class="form-strip">
-                <p class="form-desc">ऑनलाइन फॉर्म खोलने के लिए नीचे दिए गए बटन पर क्लिक करें:</p>
+                <p class="form-desc">オンラインフォームを開くには、下のボタンをクリックしてください：</p>
                 <a href="https://forms.gle/9vamSkStgjZPdUUz8" target="_blank" rel="noopener noreferrer" class="strip-btn">
                     <i class="fa-solid fa-user-plus"></i> Click Here For Registration
                 </a>
@@ -315,19 +310,17 @@
             </div>
         </div>
 
-        <!-- अनुभाग 3: रजिस्टर्ड सदस्य -->
         <div id="members-list" class="tab-panel">
             <div class="rjyf-card" style="border-left: 5px solid #e11d48; background-color: #fff1f2;">
                 <p class="panel-text" style="margin-bottom: 0; font-weight: 600; font-style: italic; color: #9f1239;">
                     यहाँ साझा की गई पंजीकृत सदस्यों की सूची केवल प्रारंभिक सूची (Draft List) है। इसे अभी अंतिम या आधिकारिक सूची न समझा जाए। आवश्यक समीक्षा और सुधारों के बाद जल्द ही आधिकारिक सूची साझा की जाएगी।
                 </p>
-                <p style="font-size: 12px; font-weight: bold; color: #64748b; margin-top: 5px;">(List last updated on July 03, 2026)</p>
             </div>
 
-            <div class="form-strip" style="background: linear-gradient(135deg, #0b3a20, #11532e); padding: 40px 20px;">
+            <div class="form-strip" style="background: linear-gradient(135deg, #0b3a20, #11532e); padding: 45px 20px;">
                 <i class="fa-solid fa-table-list" style="font-size: 45px; color: #fcd34d; margin-bottom: 15px;"></i>
-                <p class="form-desc" style="font-size: 15.5px; font-weight: 600; line-height: 1.5; max-width: 600px; margin: 0 auto 20px auto;">
-                    सुरक्षा कारणों और बेहतर मोबाइल व्यू (Mobile Friendly View) के लिए पंजीकृत सदस्यों की लाइव सूची को सीधे एक नए सुरक्षित पेज पर लाइव कर दिया गया है।
+                <p class="form-desc" style="font-size: 16px; font-weight: 600; line-height: 1.5; max-width: 650px; margin: 0 auto 20px auto;">
+                    मोबाइल स्क्रीन पर बेहतर और साफ व्यू (Mobile Friendly View) के लिए पंजीकृत सदस्यों की पूरी लाइव सूची देखने के लिए नीचे दिए गए बटन का उपयोग करें।
                 </p>
                 <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTRhErYNQKy2V5L1vbwCgranu6wvr4C0JM0xvfP8EwjxqW1C7iYtpeVhOv2nXN2euIu-hYLmNzIZ96T/pubhtml" target="_blank" rel="noopener noreferrer" class="strip-btn" style="background-color: #fcd34d; color: #0f172a; padding: 14px 35px;">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i> यहाँ क्लिक करके लाइव सदस्य सूची देखें
@@ -337,7 +330,6 @@
 
     </div>
 
-    <!-- सोशल मीडिया कनेक्ट -->
     <div class="social-section">
         <p class="social-text">संस्थान के सोशल मीडिया अकाउंट से जुड़ें</p>
         <div class="social-links">
@@ -348,7 +340,6 @@
         </div>
     </div>
 
-    <!-- फुटर -->
     <div class="footer-section">
         <div class="footer-bottom">
             &copy; 2026 जाट समाज संस्थान भादरा। सर्वाधिकार सुरक्षित।
@@ -356,10 +347,25 @@
     </div>
 
     <script>
-        function highlightTab(activeBtnId) {
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            document.getElementById(activeBtnId).classList.add('active');
+        function openTab(panelId, btnId) {
+            // 1. सभी पैनल्स को छिपाओ
+            var panels = document.getElementsByClassName('tab-panel');
+            for (var i = 0; i < panels.length; i++) {
+                panels[i].classList.remove('active');
+            }
+            
+            // 2. सभी बटन से एक्टिव क्लास हटाओ
+            var buttons = document.getElementsByClassName('tab-btn');
+            for (var j = 0; j < buttons.length; j++) {
+                buttons[j].classList.remove('active');
+            }
+            
+            // 3. केवल क्लिक किए गए पैनल और बटन को एक्टिव करो
+            document.getElementById(panelId).classList.add('active');
+            document.getElementById(btnId).classList.add('active');
+            
+            // 4. पेज को ऊपर की तरफ स्मूथली एडजस्ट करें
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
 </body>
