@@ -8,25 +8,16 @@
     <style>
         :root { --brand-green: #11532e; --brand-dark-green: #0b3a20; --brand-gold: #d4af37; }
         body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #f8fafc; }
-        
-        /* नेविगेशन बार */
         .master-nav-container { max-width: 1140px; margin: 15px auto; padding: 0 20px; }
         .master-navbar { background: linear-gradient(135deg, var(--brand-dark-green), var(--brand-green)); border-bottom: 4px solid var(--brand-gold); padding: 10px 14px; border-radius: 12px; display: flex; gap: 10px; overflow-x: auto; white-space: nowrap; }
         .nav-btn { display: inline-flex; align-items: center; gap: 6px; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; border: 1px solid rgba(255,255,255,0.1); }
         .nav-btn:hover, .nav-btn.active { background: var(--brand-gold); color: var(--brand-dark-green); }
-
-        /* स्लाइडर कंटेनर */
         .slider-container { max-width: 600px; margin: 20px auto; position: relative; padding: 0 10px; }
         .slide { display: none; text-align: center; }
-        .slide img { width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 2px solid var(--brand-gold); }
-        
-        /* नेविगेशन बटन */
-        .nav-arrow { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; background: rgba(17, 83, 46, 0.8); color: white; border: none; font-size: 20px; font-weight: bold; border-radius: 50%; }
+        .slide img { width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 2px solid var(--brand-gold); display: block; }
+        .nav-arrow { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; background: rgba(17, 83, 46, 0.8); color: white; border: none; font-size: 20px; font-weight: bold; border-radius: 50%; z-index: 10; }
         .prev { left: 0px; } .next { right: 0px; }
-        
-        /* कंट्रोल */
         .controls { text-align: center; margin: 20px auto; padding: 0 20px; max-width: 600px; }
-        .disclaimer { font-size: 11px; color: #555; margin-top: 15px; line-height: 1.4; text-align: justify; }
         .footer-section { background: #0b3a20; color: #ffffff; padding: 20px; margin-top: 30px; text-align: center; font-size: 13px; }
     </style>
 </head>
@@ -34,43 +25,31 @@
 
     <div class="master-nav-container">
         <nav class="master-navbar">
-            <a href="https://sites.google.com/view/jatsamajbhadra/" target="_blank" class="nav-btn"><i class="fa-solid fa-house"></i> होम</a>
-            <a href="https://sites.google.com/view/jatsamajbhadra/rjyf" target="_blank" class="nav-btn"><i class="fa-solid fa-users-gear"></i> RJYF</a>
-            <a href="https://sites.google.com/view/jatsamajbhadra/meetings" target="_blank" class="nav-btn"><i class="fa-solid fa-calendar-check"></i> बैठक सूचना</a>
-            <a href="https://sites.google.com/view/jatsamajbhadra/news-events" target="_blank" class="nav-btn"><i class="fa-solid fa-newspaper"></i> News & Events</a>
-            <a href="calendar.html" class="nav-btn active"><i class="fa-solid fa-calendar-days"></i> 📅 जाट कैलेंडर</a>
-            <a href="https://sites.google.com/view/jatsamajbhadra/contact-us" target="_blank" class="nav-btn"><i class="fa-solid fa-address-book"></i> Contact Us</a>
+            <a href="https://sites.google.com/view/jatsamajbhadra/" class="nav-btn"><i class="fa-solid fa-house"></i> होम</a>
+            <a href="calendar.html" class="nav-btn active"><i class="fa-solid fa-calendar-days"></i> जाट कैलेंडर</a>
         </nav>
     </div>
 
     <div class="slider-container">
-        <!-- 12 स्लाइड यहाँ से शुरू -->
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_01.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_02.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_03.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_04.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_05.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_06.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_07.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_08.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_09.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_10.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_11.png"></div>
-        <div class="slide"><img src="images/Calendar_Bhadra_2026_12.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_01.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_02.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_03.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_04.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_05.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_06.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_07.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_08.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_09.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_10.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_11.png"></div>
+        <div class="slide"><img src="https://jatsamajbhadra.github.io/home/images/Calendar_Bhadra_2026_12.png"></div>
         
         <button class="nav-arrow prev" onclick="plusSlides(-1)">❮</button>
         <button class="nav-arrow next" onclick="plusSlides(1)">❯</button>
     </div>
 
-    <div class="controls">
-        <p class="disclaimer">
-            नोट: यह कैलेंडर इमेज व्यूअर है। यदि आपको कैलेंडर डाउनलोड करना है, तो कृपया मुख्य फाइल का उपयोग करें। किसी भी त्रुटि के लिए 'Contact Us' पर सूचित करें।
-        </p>
-    </div>
-
     <div class="footer-section">
-        &copy; 2026 जाट समाज संस्थान भादरा | सर्वाधिकार सुरक्षित।<br>
-        Designed & Developed by : <a href="https://www.instagram.com/pc_beniwal" target="_blank" style="color: var(--brand-gold);">PC Beniwal</a>
+        &copy; 2026 जाट समाज संस्थान भादरा | Designed by PC Beniwal
     </div>
 
     <script>
