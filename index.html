@@ -6,7 +6,7 @@
     <title>जाट समाज संस्थान भादरा - मुख्य होम पेज</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* 5. पूरे पेज के लिए इनविजिबल स्क्रोलबार (Invisible Scrollbar) और स्मूथ स्क्रोलिंग */
+        /* 1. पूरे पेज के लिए इनविजिबल स्क्रोलबार (Invisible Scrollbar) और स्मूथ स्क्रोलिंग */
         html, body {
             scroll-behavior: smooth;
             -ms-overflow-style: none;  /* IE और Edge के लिए स्क्रोलबार छिपाएं */
@@ -38,7 +38,7 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* 🏛️ VIP नेविगेशन बार (हरी पट्टी) सेटिंग */
+        /* 🏛️ VIP नेविगेशन बार (डायनेमिक लेआउट के साथ) */
         .master-nav-container {
             max-width: 1140px;
             margin: 10px auto 15px auto;
@@ -52,20 +52,58 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: space-between;
             gap: 10px;
-            overflow-x: auto; /* मोबाइल पर स्वाइप के लिए */
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-            /* नेविगेशन बार के अंदर की स्क्रॉलबार छिपाने के लिए */
-            -ms-overflow-style: none;  
-            scrollbar-width: none; 
-        }
-        .master-navbar::-webkit-scrollbar {
-            display: none;
+            position: relative;
         }
 
-        /* 💎 1. एनिमेटेड बटन स्टाइल (छोटा और स्लीक साइज) */
+        /* डायनेमिक बटन्स कंटेनर (जो अपने आप फिट होंगे) */
+        .primary-menu {
+            display: flex;
+            gap: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            flex-grow: 1;
+        }
+
+        /* ड्रॉपडाउन कंटेनर और बटन */
+        .more-menu-container {
+            position: relative;
+            flex-shrink: 0;
+            display: none; /* डिफ़ॉल्ट रूप से छिपा रहेगा, JS इसे कंट्रोल करेगा */
+        }
+        .more-btn {
+            background: var(--brand-gold) !important;
+            color: var(--brand-dark-green) !important;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .more-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 12px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            padding: 10px;
+            z-index: 1000;
+            flex-direction: column;
+            gap: 8px;
+            border: 2px solid var(--brand-gold);
+            min-width: 200px;
+        }
+        .more-menu.show {
+            display: flex;
+            animation: fadeInDown 0.3s ease forwards;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 💎 एनिमेटेड बटन स्टाइल (छोटा और स्लीक साइज) */
         .nav-btn {
             display: inline-flex;
             align-items: center;
@@ -73,9 +111,9 @@
             background: rgba(255, 255, 255, 0.08);
             color: #ffffff;
             text-decoration: none;
-            padding: 6px 12px; /* पहले 8px 16px था, अब स्लिम कर दिया गया है */
+            padding: 6px 12px; /* स्लिम साइज */
             border-radius: 8px;
-            font-size: 12.5px; /* पहले 13px था */
+            font-size: 12.5px; /* स्लीक फॉन्ट */
             font-weight: 700;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -87,8 +125,22 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             border-color: var(--brand-gold);
         }
-        .nav-btn i {
-            font-size: 14px;
+        .nav-btn i { font-size: 14px; }
+
+        /* ड्रॉपडाउन के अंदर वाले बटनों का विशेष डिज़ाइन */
+        .more-menu .nav-btn {
+            background: var(--light-bg);
+            color: var(--brand-dark-green);
+            border: 1px solid #e2e8f0;
+            width: 100%;
+            justify-content: flex-start;
+            padding: 10px 15px;
+            font-size: 13.5px;
+            transform: none;
+        }
+        .more-menu .nav-btn:hover {
+            background: var(--brand-gold);
+            color: var(--brand-dark-green);
         }
 
         /* 🏛️ संस्थान परिचय सेक्शन */
@@ -108,81 +160,22 @@
             transform: translateY(-4px);
             box-shadow: 0 10px 25px rgba(17, 83, 46, 0.08);
         }
-        .intro-title { 
-            font-size: 19px; 
-            color: var(--brand-green); 
-            font-weight: 700; 
-            margin-bottom: 10px; 
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .intro-text { 
-            font-size: 14px; 
-            color: #334155; 
-            line-height: 1.6; 
-            text-align: justify;
-        }
-        .intro-highlight {
-            font-weight: 700;
-            color: var(--brand-dark-green);
-        }
+        .intro-title { font-size: 19px; color: var(--brand-green); font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .intro-text { font-size: 14px; color: #334155; line-height: 1.6; text-align: justify; }
+        .intro-highlight { font-weight: 700; color: var(--brand-dark-green); }
 
         /* 📸 मॉडर्न इमेज गैलरी ग्रिड */
         .gallery-section { max-width: 1140px; margin: 30px auto; padding: 0 20px; }
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 20px; 
-        }
-        .gallery-item { 
-            background: #ffffff; 
-            border-radius: 14px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02); 
-            border: 1px solid #e2e8f0;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.15, 0.85, 0.45, 1);
-        }
-        .gallery-item:hover { 
-            transform: translateY(-6px); 
-            box-shadow: 0 15px 30px rgba(17,83,46,0.1);
-            border-color: var(--brand-green);
-        }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .gallery-item { background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.4s cubic-bezier(0.15, 0.85, 0.45, 1); }
+        .gallery-item:hover { transform: translateY(-6px); box-shadow: 0 15px 30px rgba(17,83,46,0.1); border-color: var(--brand-green); }
         .gallery-img-box { width: 100%; height: 230px; overflow: hidden; }
-        .gallery-img-box img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 0.6s ease;
-        }
+        .gallery-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .gallery-item:hover .gallery-img-box img { transform: scale(1.05); }
 
         /* 🔗 पंजीकरण क्विक लिंक स्ट्रिप */
-        .link-strip { 
-            background: linear-gradient(135deg, #11532e, #1a7442); 
-            padding: 15px 20px; 
-            text-align: center; 
-            margin: 30px 0;
-            box-shadow: 0 4px 12px rgba(17,83,46,0.12);
-        }
-        .strip-btn { 
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #ffffff; 
-            color: var(--brand-green); 
-            text-decoration: none; 
-            padding: 10px 24px; 
-            border-radius: 30px; 
-            font-weight: 700; 
-            font-size: 13.5px; 
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            animation: buttonPulse 2s infinite;
-            transition: all 0.3s ease;
-        }
+        .link-strip { background: linear-gradient(135deg, #11532e, #1a7442); padding: 15px 20px; text-align: center; margin: 30px 0; box-shadow: 0 4px 12px rgba(17,83,46,0.12); }
+        .strip-btn { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: var(--brand-green); text-decoration: none; padding: 10px 24px; border-radius: 30px; font-weight: 700; font-size: 13.5px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); position: relative; overflow: hidden; animation: buttonPulse 2s infinite; transition: all 0.3s ease; }
         
         @keyframes buttonPulse {
             0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
@@ -191,41 +184,15 @@
         }
 
         .strip-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 30%;
-            height: 200%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-            transform: rotate(25deg);
-            animation: shine 3.5s infinite;
+            content: ''; position: absolute; top: -50%; left: -60%; width: 30%; height: 200%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%); transform: rotate(25deg); animation: shine 3.5s infinite;
         }
-        @keyframes shine {
-            0% { left: -60%; }
-            15% { left: 140%; }
-            100% { left: 140%; }
-        }
-
-        .strip-btn:hover { 
-            background: var(--brand-dark-green); 
-            color: #ffffff; 
-            transform: scale(1.03); 
-        }
+        @keyframes shine { 0% { left: -60%; } 15% { left: 140%; } 100% { left: 140%; } }
+        .strip-btn:hover { background: var(--brand-dark-green); color: #ffffff; transform: scale(1.03); }
 
         /* 📺 वीडियो सेक्शन */
         .video-section { max-width: 800px; margin: 35px auto; padding: 0 20px; text-align: center; }
         .video-title { font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--brand-dark-green); }
-        .video-wrapper { 
-            position: relative; 
-            padding-bottom: 56.25%; 
-            height: 0; 
-            overflow: hidden; 
-            border-radius: 16px; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border: 4px solid #ffffff;
-            transition: transform 0.4s ease;
-        }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 4px solid #ffffff; transition: transform 0.4s ease; }
         .video-wrapper:hover { transform: scale(1.01); }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
@@ -233,19 +200,7 @@
         .social-section { text-align: center; margin: 40px auto; padding: 0 20px; }
         .social-text { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 12px; font-style: italic; }
         .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-        .social-icon { 
-            width: 40px; 
-            height: 40px; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: #ffffff; 
-            text-decoration: none; 
-            font-size: 18px; 
-            transition: all 0.4s cubic-bezier(0.15, 0.85, 0.45, 1); 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff; text-decoration: none; font-size: 18px; transition: all 0.4s cubic-bezier(0.15, 0.85, 0.45, 1); box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
         .social-icon.fb { background: #1877f2; }
         .social-icon.insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .social-icon.yt { background: #ff0000; }
@@ -253,64 +208,20 @@
         .social-icon:hover { transform: translateY(-5px) rotate(360deg); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
 
         /* 🏢 एलीट कॉर्पोरेट फुटर */
-        .footer-section { 
-            background: #0b3a20; 
-            color: #ffffff; 
-            padding: 30px 20px 20px 20px; 
-            border-top: 4px solid var(--brand-gold);
-            margin-top: 35px;
-            text-align: left;
-        }
-        .footer-container { 
-            max-width: 1140px; 
-            margin: 0 auto; 
-            display: flex; 
-            flex-direction: column; 
-            gap: 15px;
-        }
-        .footer-title { 
-            font-size: 16.5px; 
-            font-weight: 700; 
-            color: var(--brand-gold); 
-            border-bottom: 1px dashed rgba(212,175,55,0.3);
-            padding-bottom: 8px;
-            margin-bottom: 3px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .footer-info-item { 
-            display: flex; 
-            gap: 10px; 
-            font-size: 13.5px; 
-            line-height: 1.4; 
-            align-items: flex-start; 
-        }
+        .footer-section { background: #0b3a20; color: #ffffff; padding: 30px 20px 20px 20px; border-top: 4px solid var(--brand-gold); margin-top: 35px; text-align: left; }
+        .footer-container { max-width: 1140px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+        .footer-title { font-size: 16.5px; font-weight: 700; color: var(--brand-gold); border-bottom: 1px dashed rgba(212,175,55,0.3); padding-bottom: 8px; margin-bottom: 3px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .footer-info-item { display: flex; gap: 10px; font-size: 13.5px; line-height: 1.4; align-items: flex-start; }
         .footer-info-item i { color: var(--brand-gold); font-size: 14px; margin-top: 3px; }
         .footer-info-item a { color: #ffffff; text-decoration: none; transition: color 0.2s; }
         .footer-info-item a:hover { color: var(--brand-gold); }
-        .footer-bottom { 
-            text-align: center; 
-            border-top: 1px solid rgba(255,255,255,0.08); 
-            padding-top: 15px; 
-            margin-top: 10px; 
-        }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 15px; margin-top: 10px; }
 
         /* 🔍 इमेज लाइटबॉक्स पॉपअप मॉडल */
         .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; display: none; justify-content: center; align-items: center; padding: 20px; }
-        .lightbox-img { 
-            max-width: 100%; 
-            max-height: 90vh; 
-            border-radius: 8px; 
-            box-shadow: 0 5px 25px rgba(0,0,0,0.5); 
-            animation: zoomIn 0.3s ease forwards;
-        }
-        @keyframes zoomIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+        .lightbox-img { max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease forwards; }
+        @keyframes zoomIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
         .lightbox-close { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 35px; cursor: pointer; font-weight: bold; }
 
         /* मोबाइल व्यू में बटन को और स्लिम करने के लिए */
@@ -323,42 +234,54 @@
             .nav-btn { padding: 5px 10px; font-size: 11.5px; } /* मोबाइल पर बटन और स्लिम */
         }
 
-        ::selection {
-            background: #11532e;
-            color: #fff;
-        }
+        ::selection { background: #11532e; color: #fff; }
     </style>
 </head>
 <body>
 
     <div class="master-nav-container">
-        <nav class="master-navbar">
-            <a href="https://sites.google.com/view/jatsamajbhadra/" target="_blank" class="nav-btn active">
-                <i class="fa-solid fa-house"></i> होम
-            </a>
-            <a href="https://sites.google.com/view/jatsamajbhadra/rjyf" target="_blank" class="nav-btn">
-                <i class="fa-solid fa-users-gear"></i> RJYF
-            </a>
-            <a href="https://sites.google.com/view/jatsamajbhadra/meetings" target="_blank" class="nav-btn">
-                <i class="fa-solid fa-calendar-check"></i> बैठक सूचना
-            </a>
-            <a href="https://sites.google.com/view/jatsamajbhadra/news-events" target="_blank" class="nav-btn">
-                <i class="fa-solid fa-newspaper"></i> News & Events
-            </a>
-            <a href="https://sites.google.com/view/jatsamajbhadra/jat-calendar" target="_blank" class="nav-btn">
-                <i class="fa-solid fa-calendar-days"></i> 📅 जाट कैलेंडर
-            </a>
-            <a href="https://sites.google.com/view/jatsamajbhadra/contact-us" target="_blank" class="nav-btn">
-                <i class="fa-solid fa-address-book"></i> Contact Us
-            </a>
+        <nav class="master-navbar" id="master-navbar">
+            
+            <!-- डायनेमिक बटन्स (यहाँ नए क्रम के साथ 6 बटन हैं) -->
+            <div class="primary-menu" id="primary-menu">
+                <a href="https://sites.google.com/view/jatsamajbhadra/" target="_blank" class="nav-btn active">
+                    <i class="fa-solid fa-house"></i> होम
+                </a>
+                <a href="https://sites.google.com/view/jatsamajbhadra/rjyf" target="_blank" class="nav-btn">
+                    <i class="fa-solid fa-users-gear"></i> RJYF
+                </a>
+                <a href="https://sites.google.com/view/jatsamajbhadra/meetings" target="_blank" class="nav-btn">
+                    <i class="fa-solid fa-calendar-check"></i> बैठक सूचना
+                </a>
+                <a href="https://sites.google.com/view/jatsamajbhadra/news-events" target="_blank" class="nav-btn">
+                    <i class="fa-solid fa-newspaper"></i> News & Events
+                </a>
+                <!-- नया 'जाट कैलेंडर' लिंक और नाम 5वें नंबर पर -->
+                <a href="https://sites.google.com/view/jatsamajbhadra/jat-calendar" target="_blank" class="nav-btn">
+                    <i class="fa-solid fa-calendar-days"></i> 📅 जाट कैलेंडर
+                </a>
+                <a href="https://sites.google.com/view/jatsamajbhadra/contact-us" target="_blank" class="nav-btn">
+                    <i class="fa-solid fa-address-book"></i> Contact Us
+                </a>
+            </div>
+
+            <!-- यह 'अन्य ▾' बटन केवल तभी दिखेगा जब स्क्रीन छोटी होगी -->
+            <div class="more-menu-container" id="more-menu-container">
+                <button class="nav-btn more-btn" onclick="toggleMoreMenu(event)">अन्य <i class="fa-solid fa-caret-down"></i></button>
+                <div class="more-menu" id="more-menu">
+                    <!-- छिपे हुए बटन जावास्क्रिप्ट द्वारा यहाँ भेजे जाएंगे -->
+                </div>
+            </div>
+            
         </nav>
     </div>
 
+    <!-- बाकी सारा कंटेंट वैसा ही सुरक्षित है -->
     <div class="intro-section">
         <div class="intro-card">
             <h2 class="intro-title"><i class="fa-solid fa-building-columns"></i> संस्थान परिचय:</h2>
             <p class="intro-text">
-                <span class="intro-highlight">जाट समाज संस्थान, भादरा</span> सामाजिक एकता, शिक्षा, संस्कृति एवं सामुदायिक विकास को समर्पित एक प्रतिष्ठित संस्था है। संस्थान का उद्देश्य जाट समाज के सामाजिक, शैक्षणिक, सांस्कृतिक एवं आर्थिक उत्थान के लिए सार्थक प्रयास करना तथा समाज में भाईचारे, सहयोग और जागरूकता को बढ़ावा देना है।<br><br>
+                <span class="intro-highlight">जाट समाज संस्थान, भादरा</span> सामाजिक एकता, शिक्षा, संस्कृति एवं सामुदायिक विकास को समर्पित एक प्रतिष्ठित संस्था है। संस्थान का उद्देश्य जाट समाज के সামাজিক, शैक्षणिक, सांस्कृतिक एवं आर्थिक उत्थान के लिए सार्थक प्रयास करना तथा समाज में भाईचारे, सहयोग और जागरूकता को बढ़ावा देना है।<br><br>
                 संस्थान द्वारा समय-समय पर प्रतिभा सम्मान समारोह, शैक्षणिक प्रोत्साहन कार्यक्रम, सांस्कृतिक आयोजन एवं जनकल्याणकारी गतिविधियों का आयोजन किया जाता है। हम समाज की गौरवशाली परंपराओं और मूल्यों को सुरक्षित रखते हुए नई पीढ़ी को शिक्षा, नेतृत्व और सामाजिक जिम्मेदारी के लिए प्रेरित करने का कार्य करते हैं। जाट समाज संस्थान, भादरा समाज सेवा, संगठन and विकास के माध्यम से एक स्वस्थ एवं प्रगतिशील समाज के निर्माण हेतु निरंतर प्रतिबद्ध है।
             </p>
         </div>
@@ -446,7 +369,9 @@
         <img class="lightbox-img" id="lightboxTarget" src="" alt="Zoomed Image">
     </div>
 
+    <!-- 🚀 डायनेमिक ओवरफ्लो और लाइटबॉक्स के लिए जावास्क्रिप्ट -->
     <script>
+        // लाइटबॉक्स फंक्शन
         function openLightbox(imgUrl) {
             document.getElementById('lightboxTarget').src = imgUrl;
             document.getElementById('imageLightbox').style.display = 'flex';
@@ -454,6 +379,50 @@
         function closeLightbox() {
             document.getElementById('imageLightbox').style.display = 'none';
         }
+
+        // डायनेमिक नेविगेशन (Priority+ Menu) लॉजिक
+        const primaryMenu = document.getElementById('primary-menu');
+        const moreMenuContainer = document.getElementById('more-menu-container');
+        const moreMenu = document.getElementById('more-menu');
+
+        function adaptNav() {
+            // पहले सारे बटनों को वापस मुख्य मेनू में लाएं ताकि री-कैलकुलेट किया जा सके
+            while(moreMenu.firstChild) {
+                primaryMenu.appendChild(moreMenu.firstChild);
+            }
+            moreMenuContainer.style.display = 'none';
+
+            // चेक करें कि क्या मुख्य मेनू अपनी चौड़ाई से बाहर जा रहा है (Overflow)
+            let isOverflow = primaryMenu.scrollWidth > primaryMenu.clientWidth;
+            
+            if (isOverflow) {
+                // अगर जगह कम है, तो 'अन्य ▾' बटन को दिखाएं
+                moreMenuContainer.style.display = 'block';
+                
+                // आखिरी बटन को तब तक 'अन्य' ड्रॉपडाउन में भेजते रहें, जब तक कि सब कुछ फिट न हो जाए
+                // (कम से कम 1 बटन सामने रखना सुनिश्चित किया गया है)
+                while (primaryMenu.scrollWidth > primaryMenu.clientWidth && primaryMenu.children.length > 1) {
+                    moreMenu.insertBefore(primaryMenu.lastElementChild, moreMenu.firstChild);
+                }
+            }
+        }
+
+        // पेज लोड होने पर और स्क्रीन का साइज़ बदलने पर इसे रन करें
+        window.addEventListener('resize', adaptNav);
+        window.addEventListener('load', adaptNav);
+
+        // 'अन्य ▾' बटन दबाने पर ड्रॉपडाउन खोलना/बंद करना
+        function toggleMoreMenu(event) {
+            moreMenu.classList.toggle('show');
+            event.stopPropagation();
+        }
+
+        // अगर यूज़र कहीं और क्लिक करे, तो ड्रॉपडाउन अपने आप बंद हो जाए
+        document.addEventListener('click', function(event) {
+            if (!moreMenuContainer.contains(event.target)) {
+                moreMenu.classList.remove('show');
+            }
+        });
     </script>
 </body>
 </html>
