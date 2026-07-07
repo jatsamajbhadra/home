@@ -38,7 +38,7 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* 🏛️ VIP नेविगेशन बार (डायनेमिक लेआउट के साथ) */
+        /* 🏛️ VIP नेविगेशन बार (डायनेमिक + 3D लेआउट) */
         .master-nav-container {
             max-width: 1140px;
             margin: 10px auto 15px auto;
@@ -57,25 +57,59 @@
             position: relative;
         }
 
-        /* डायनेमिक बटन्स कंटेनर (जो अपने आप फिट होंगे) */
+        /* डायनेमिक बटन्स कंटेनर */
         .primary-menu {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             overflow: hidden;
             white-space: nowrap;
             flex-grow: 1;
         }
 
+        /* 💎 3D एनिमेटेड बटन स्टाइल (Embossed & Inset) */
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #0e4425; 
+            color: #ffffff;
+            text-decoration: none;
+            padding: 6px 12px; /* स्लिम साइज */
+            border-radius: 8px;
+            font-size: 12.5px; 
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.03);
+            /* 3D उभरा हुआ (Embossed) इफेक्ट */
+            box-shadow: 3px 3px 6px rgba(0,0,0,0.35), -2px -2px 5px rgba(255,255,255,0.08);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .nav-btn:hover {
+            color: var(--brand-gold);
+            /* होवर पर हल्का और उभरेगा */
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.4), -2px -2px 6px rgba(255,255,255,0.1);
+            transform: translateY(-1px);
+        }
+        /* Active (दबा हुआ / Inset) State - होम पेज के लिए होम बटन एक्टिव */
+        .nav-btn.active {
+            background: #0a331c; 
+            color: var(--brand-gold);
+            /* 3D अंदर की तरफ दबा हुआ इफेक्ट */
+            box-shadow: inset 3px 3px 6px rgba(0,0,0,0.6), inset -2px -2px 4px rgba(255,255,255,0.05);
+            transform: translateY(1px); 
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        .nav-btn i { font-size: 14px; }
+
         /* ड्रॉपडाउन कंटेनर और बटन */
         .more-menu-container {
             position: relative;
             flex-shrink: 0;
-            display: none; /* डिफ़ॉल्ट रूप से छिपा रहेगा, JS इसे कंट्रोल करेगा */
+            display: none; 
         }
         .more-btn {
             background: var(--brand-gold) !important;
             color: var(--brand-dark-green) !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 3px 3px 6px rgba(0,0,0,0.3), -2px -2px 5px rgba(255,255,255,0.3) !important;
             cursor: pointer;
         }
         .more-menu {
@@ -103,35 +137,12 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 💎 एनिमेटेड बटन स्टाइल (छोटा और स्लीक साइज) */
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 6px 12px; /* स्लिम साइज */
-            border-radius: 8px;
-            font-size: 12.5px; /* स्लीक फॉन्ट */
-            font-weight: 700;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .nav-btn:hover, .nav-btn.active {
-            background: var(--brand-gold);
-            color: var(--brand-dark-green);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            border-color: var(--brand-gold);
-        }
-        .nav-btn i { font-size: 14px; }
-
         /* ड्रॉपडाउन के अंदर वाले बटनों का विशेष डिज़ाइन */
         .more-menu .nav-btn {
             background: var(--light-bg);
             color: var(--brand-dark-green);
             border: 1px solid #e2e8f0;
+            box-shadow: none;
             width: 100%;
             justify-content: flex-start;
             padding: 10px 15px;
@@ -182,10 +193,7 @@
             70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
-
-        .strip-btn::after {
-            content: ''; position: absolute; top: -50%; left: -60%; width: 30%; height: 200%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%); transform: rotate(25deg); animation: shine 3.5s infinite;
-        }
+        .strip-btn::after { content: ''; position: absolute; top: -50%; left: -60%; width: 30%; height: 200%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%); transform: rotate(25deg); animation: shine 3.5s infinite; }
         @keyframes shine { 0% { left: -60%; } 15% { left: 140%; } 100% { left: 140%; } }
         .strip-btn:hover { background: var(--brand-dark-green); color: #ffffff; transform: scale(1.03); }
 
@@ -224,14 +232,13 @@
         @keyframes zoomIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
         .lightbox-close { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 35px; cursor: pointer; font-weight: bold; }
 
-        /* मोबाइल व्यू में बटन को और स्लिम करने के लिए */
         @media (max-width: 650px) {
             .gallery-grid { grid-template-columns: 1fr; gap: 15px; }
             .gallery-img-box { height: 190px; }
             .intro-card { padding: 18px; }
             .footer-grid { grid-template-columns: 1fr; gap: 15px; }
             .master-nav-container { padding: 0 10px; }
-            .nav-btn { padding: 5px 10px; font-size: 11.5px; } /* मोबाइल पर बटन और स्लिम */
+            .nav-btn { padding: 5px 10px; font-size: 11.5px; } /* मोबाइल पर बटन स्लिम */
         }
 
         ::selection { background: #11532e; color: #fff; }
@@ -242,11 +249,12 @@
     <div class="master-nav-container">
         <nav class="master-navbar" id="master-navbar">
             
-            <!-- डायनेमिक बटन्स (यहाँ नए क्रम के साथ 6 बटन हैं) -->
             <div class="primary-menu" id="primary-menu">
+                <!-- होम बटन दबा हुआ (Inset/Active) है क्योंकि यूज़र होम पेज पर है -->
                 <a href="https://sites.google.com/view/jatsamajbhadra/" target="_blank" class="nav-btn active">
                     <i class="fa-solid fa-house"></i> होम
                 </a>
+                <!-- बाकी सब बटन उभरे हुए (Embossed) हैं -->
                 <a href="https://sites.google.com/view/jatsamajbhadra/rjyf" target="_blank" class="nav-btn">
                     <i class="fa-solid fa-users-gear"></i> RJYF
                 </a>
@@ -256,7 +264,6 @@
                 <a href="https://sites.google.com/view/jatsamajbhadra/news-events" target="_blank" class="nav-btn">
                     <i class="fa-solid fa-newspaper"></i> News & Events
                 </a>
-                <!-- नया 'जाट कैलेंडर' लिंक और नाम 5वें नंबर पर -->
                 <a href="https://sites.google.com/view/jatsamajbhadra/jat-calendar" target="_blank" class="nav-btn">
                     <i class="fa-solid fa-calendar-days"></i> 📅 जाट कैलेंडर
                 </a>
@@ -265,23 +272,22 @@
                 </a>
             </div>
 
-            <!-- यह 'अन्य ▾' बटन केवल तभी दिखेगा जब स्क्रीन छोटी होगी -->
+            <!-- 'अन्य ▾' डायनेमिक ओवरफ्लो बटन -->
             <div class="more-menu-container" id="more-menu-container">
                 <button class="nav-btn more-btn" onclick="toggleMoreMenu(event)">अन्य <i class="fa-solid fa-caret-down"></i></button>
                 <div class="more-menu" id="more-menu">
-                    <!-- छिपे हुए बटन जावास्क्रिप्ट द्वारा यहाँ भेजे जाएंगे -->
+                    <!-- छिपे हुए बटन यहाँ स्वतः आ जाएंगे -->
                 </div>
             </div>
             
         </nav>
     </div>
 
-    <!-- बाकी सारा कंटेंट वैसा ही सुरक्षित है -->
     <div class="intro-section">
         <div class="intro-card">
             <h2 class="intro-title"><i class="fa-solid fa-building-columns"></i> संस्थान परिचय:</h2>
             <p class="intro-text">
-                <span class="intro-highlight">जाट समाज संस्थान, भादरा</span> सामाजिक एकता, शिक्षा, संस्कृति एवं सामुदायिक विकास को समर्पित एक प्रतिष्ठित संस्था है। संस्थान का उद्देश्य जाट समाज के সামাজিক, शैक्षणिक, सांस्कृतिक एवं आर्थिक उत्थान के लिए सार्थक प्रयास करना तथा समाज में भाईचारे, सहयोग और जागरूकता को बढ़ावा देना है।<br><br>
+                <span class="intro-highlight">जाट समाज संस्थान, भादरा</span> सामाजिक एकता, शिक्षा, संस्कृति एवं सामुदायिक विकास को समर्पित एक प्रतिष्ठित संस्था है। संस्थान का उद्देश्य जाट समाज के सामाजिक, शैक्षणिक, सांस्कृतिक एवं आर्थिक उत्थान के लिए सार्थक प्रयास करना तथा समाज में भाईचारे, सहयोग और जागरूकता को बढ़ावा देना है।<br><br>
                 संस्थान द्वारा समय-समय पर प्रतिभा सम्मान समारोह, शैक्षणिक प्रोत्साहन कार्यक्रम, सांस्कृतिक आयोजन एवं जनकल्याणकारी गतिविधियों का आयोजन किया जाता है। हम समाज की गौरवशाली परंपराओं और मूल्यों को सुरक्षित रखते हुए नई पीढ़ी को शिक्षा, नेतृत्व और सामाजिक जिम्मेदारी के लिए प्रेरित करने का कार्य करते हैं। जाट समाज संस्थान, भादरा समाज सेवा, संगठन and विकास के माध्यम से एक स्वस्थ एवं प्रगतिशील समाज के निर्माण हेतु निरंतर प्रतिबद्ध है।
             </p>
         </div>
@@ -369,9 +375,7 @@
         <img class="lightbox-img" id="lightboxTarget" src="" alt="Zoomed Image">
     </div>
 
-    <!-- 🚀 डायनेमिक ओवरफ्लो और लाइटबॉक्स के लिए जावास्क्रिप्ट -->
     <script>
-        // लाइटबॉक्स फंक्शन
         function openLightbox(imgUrl) {
             document.getElementById('lightboxTarget').src = imgUrl;
             document.getElementById('imageLightbox').style.display = 'flex';
@@ -386,38 +390,29 @@
         const moreMenu = document.getElementById('more-menu');
 
         function adaptNav() {
-            // पहले सारे बटनों को वापस मुख्य मेनू में लाएं ताकि री-कैलकुलेट किया जा सके
             while(moreMenu.firstChild) {
                 primaryMenu.appendChild(moreMenu.firstChild);
             }
             moreMenuContainer.style.display = 'none';
 
-            // चेक करें कि क्या मुख्य मेनू अपनी चौड़ाई से बाहर जा रहा है (Overflow)
             let isOverflow = primaryMenu.scrollWidth > primaryMenu.clientWidth;
             
             if (isOverflow) {
-                // अगर जगह कम है, तो 'अन्य ▾' बटन को दिखाएं
                 moreMenuContainer.style.display = 'block';
-                
-                // आखिरी बटन को तब तक 'अन्य' ड्रॉपडाउन में भेजते रहें, जब तक कि सब कुछ फिट न हो जाए
-                // (कम से कम 1 बटन सामने रखना सुनिश्चित किया गया है)
                 while (primaryMenu.scrollWidth > primaryMenu.clientWidth && primaryMenu.children.length > 1) {
                     moreMenu.insertBefore(primaryMenu.lastElementChild, moreMenu.firstChild);
                 }
             }
         }
 
-        // पेज लोड होने पर और स्क्रीन का साइज़ बदलने पर इसे रन करें
         window.addEventListener('resize', adaptNav);
         window.addEventListener('load', adaptNav);
 
-        // 'अन्य ▾' बटन दबाने पर ड्रॉपडाउन खोलना/बंद करना
         function toggleMoreMenu(event) {
             moreMenu.classList.toggle('show');
             event.stopPropagation();
         }
 
-        // अगर यूज़र कहीं और क्लिक करे, तो ड्रॉपडाउन अपने आप बंद हो जाए
         document.addEventListener('click', function(event) {
             if (!moreMenuContainer.contains(event.target)) {
                 moreMenu.classList.remove('show');
