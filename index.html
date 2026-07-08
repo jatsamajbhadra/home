@@ -13,6 +13,7 @@
         body { background-color: var(--light-bg); color: var(--text-main); -webkit-font-smoothing: antialiased; animation: pageFadeIn 1s cubic-bezier(0.15, 0.85, 0.45, 1) forwards; }
         @keyframes pageFadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
 
+        /* 🏛️ VIP नेविगेशन बार - बैठक सूचना पेज से हूबहू सिंक की गई फिक्स माप */
         .master-nav-container { max-width: 1140px; margin: 0 auto 20px auto; padding: 0 20px; width: 100%; }
         .master-navbar { background: linear-gradient(135deg, var(--brand-dark-green), var(--brand-green)); border-bottom: 4px solid var(--brand-gold); padding: 10px 14px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: space-between; gap: 10px; position: relative; }
         .primary-menu { display: flex; gap: 12px; overflow: hidden; white-space: nowrap; flex-grow: 1; }
@@ -25,6 +26,7 @@
         .more-menu { display: none; position: absolute; top: 100%; right: 0; margin-top: 12px; background: #ffffff; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); padding: 10px; z-index: 1000; flex-direction: column; gap: 8px; border: 2px solid var(--brand-gold); min-width: 200px; }
         .more-menu.show { display: flex; animation: fadeInDown 0.3s ease forwards; }
 
+        /* संस्थान परिचय */
         .intro-section { max-width: 1140px; margin: 25px auto; padding: 0 20px; }
         .intro-card { background: #ffffff; border-radius: 16px; padding: 22px 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border-left: 5px solid var(--brand-green); border-top: 1px solid #f1f5f9; border-right: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; transition: all 0.4s ease; }
         .intro-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(17, 83, 46, 0.08); }
@@ -32,6 +34,7 @@
         .intro-text { font-size: 14px; color: #334155; line-height: 1.6; text-align: justify; }
         .intro-highlight { font-weight: 700; color: var(--brand-dark-green); }
 
+        /* इमेज गैलरी */
         .gallery-section { max-width: 1140px; margin: 30px auto; padding: 0 20px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
         .gallery-item { background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.4s cubic-bezier(0.15, 0.85, 0.45, 1); }
@@ -40,6 +43,7 @@
         .gallery-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .gallery-item:hover .gallery-img-box img { transform: scale(1.05); }
 
+        /* लिंक स्ट्रिप */
         .link-strip { background: linear-gradient(135deg, #11532e, #1a7442); padding: 15px 20px; text-align: center; margin: 30px 0; box-shadow: 0 4px 12px rgba(17,83,46,0.12); }
         .strip-btn { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: var(--brand-green); text-decoration: none; padding: 10px 24px; border-radius: 30px; font-weight: 700; font-size: 13.5px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); position: relative; overflow: hidden; animation: buttonPulse 2s infinite; transition: all 0.3s ease; }
         @keyframes buttonPulse { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
@@ -47,11 +51,13 @@
         @keyframes shine { 0% { left: -60%; } 15% { left: 140%; } 100% { left: 140%; } }
         .strip-btn:hover { background: var(--brand-dark-green); color: #ffffff; transform: scale(1.03); }
 
+        /* वीडियो सेक्शन */
         .video-section { max-width: 800px; margin: 35px auto; padding: 0 20px; text-align: center; }
         .video-title { font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--brand-dark-green); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 4px solid #ffffff; transition: transform 0.4s ease; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
+        /* सोशल मीडिया */
         .social-section { text-align: center; margin: 40px auto; padding: 0 20px; }
         .social-text { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 12px; font-style: italic; }
         .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
@@ -62,21 +68,28 @@
         .social-icon.x { background: #000000; }
         .social-icon:hover { transform: translateY(-5px) rotate(360deg); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
 
+        /* स्लीक फुटर पट्टी */
         .footer-section { background: #0b3a20; color: #ffffff; padding: 20px; border-top: 4px solid var(--brand-gold); margin-top: 35px; width: 100%; }
         .footer-bottom { text-align: center; }
 
+        /* लाइटबॉक्स पॉपअप मॉडल */
         .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; display: none; justify-content: center; align-items: center; padding: 20px; }
         .lightbox-img { max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease forwards; }
         @keyframes zoomIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
         .lightbox-close { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 35px; cursor: pointer; font-weight: bold; }
 
+        /* 📱 मोबाइल रिस्पॉन्सिव इंजन - बैठक सूचना कोड की हूबहू 100% सिंक की गई फिक्स माप */
         @media (max-width: 650px) {
             .gallery-grid { grid-template-columns: 1fr; gap: 15px; }
             .gallery-img-box { height: 190px; }
             .intro-card { padding: 18px; }
-            .master-nav-container { padding: 0 8px; margin-top: 5px; margin-bottom: 10px; }
-            .master-navbar { padding: 8px 10px; border-radius: 10px; }
-            .nav-btn { padding: 6px 10px; font-size: 11.5px; border-radius: 6px; }
+            
+            /* 🚀 मोबाइल पर कम से कम 3 बटन सामने रखने के लिए फिक्स स्पेस कस्टमाइजेशन नियम */
+            .master-nav-container { padding: 0 6px; margin-top: 5px; margin-bottom: 10px; }
+            .master-navbar { padding: 6px 6px; gap: 4px; border-radius: 10px; }
+            .primary-menu { gap: 5px; } 
+            .nav-btn { padding: 5px 8px; font-size: 11.5px; border-radius: 6px; gap: 4px; } 
+            .nav-btn i { font-size: 11px; }
         }
         ::selection { background: #11532e; color: #fff; }
     </style>
@@ -164,7 +177,7 @@
         <div class="footer-bottom">
             <div style="text-align: center; line-height: 1.8;">
                 <p style="font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 2px;">&copy; 2025-2026 जाट समाज संस्थान भादरा। सर्वाधिकार सुरक्षित।</p>
-                <p style="font-size: 12px; color: rgba(255,255,255,0.7); font-weight: normal;">
+                <p style="font-size: 11px; color: rgba(255,255,255,0.7); font-weight: normal;">
                     Designed & Developed by : <a href="https://www.instagram.com/pc_beniwal" target="_blank" rel="noopener noreferrer" style="color: var(--brand-gold); text-decoration: none; font-weight: bold; letter-spacing: 0.5px;">PC Beniwal</a>
                 </p>
             </div>
@@ -209,4 +222,4 @@
         });
     </script>
 </body>
-                    </html>
+</html>
