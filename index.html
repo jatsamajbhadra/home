@@ -12,14 +12,14 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
         
         /* आपका ओरिजिनल बॉडी एनीमेशन */
-        body { background-color: var(--light-bg); color: var(--text-main); -webkit-font-smoothing: antialiased; animation: pageFadeIn 1s cubic-bezier(0.15, 0.85, 0.45, 1) forwards; }
+        body { background-color: var(--light-bg); color: var(--text-main); -webkit-font-smoothing: antialiased; animation: pageFadeIn 1s cubic-bezier(0.15, 0.85, 0.45, 1) forwards; padding-top: 0px !important; margin-top: 0px !important; }
         @keyframes pageFadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
 
-        /* 🌟 मास्टर बैनर (सिर्फ यह नया जोड़ा है) */
+        /* 🌟 मास्टर बैनर */
         .page-banner-container { background-color: var(--brand-dark-green); border-bottom: 5px solid var(--brand-gold); width: 100%; display: block; text-align: center; margin-bottom: 20px; }
         .page-banner-container img { width: 100%; max-width: 1140px; height: auto; display: block; margin: 0 auto; }
 
-        /* 🏛️ VIP नेविगेशन बार - बेस स्ट्रक्चर */
+        /* 🏛️ VIP नेविगेशन बार */
         .master-nav-container { max-width: 1140px; margin: 0 auto 20px auto; padding: 0 20px; width: 100%; }
         .master-navbar { background: linear-gradient(135deg, var(--brand-dark-green), var(--brand-green)); border-bottom: 4px solid var(--brand-gold); padding: 10px 14px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: space-between; gap: 10px; position: relative; }
         .primary-menu { display: flex; gap: 12px; overflow: hidden; white-space: nowrap; flex-grow: 1; }
@@ -49,7 +49,7 @@
         .gallery-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .gallery-item:hover .gallery-img-box img { transform: scale(1.05); }
 
-        /* 🌟 आपका ओरिजिनल लिंक स्ट्रिप और एनीमेशन (वापस आ गया) 🌟 */
+        /* 🌟 आपका ओरिजिनल लिंक स्ट्रिप और एनीमेशन 🌟 */
         .link-strip { background: linear-gradient(135deg, #11532e, #1a7442); padding: 15px 20px; text-align: center; margin: 30px 0; box-shadow: 0 4px 12px rgba(17,83,46,0.12); }
         .strip-btn { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: var(--brand-green); text-decoration: none; padding: 10px 24px; border-radius: 30px; font-weight: 700; font-size: 13.5px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); position: relative; overflow: hidden; animation: buttonPulse 2s infinite; transition: all 0.3s ease; }
         @keyframes buttonPulse { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
@@ -63,7 +63,7 @@
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 4px solid #ffffff; transition: transform 0.4s ease; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* 🌟 आपका ओरिजिनल सोशल मीडिया होवर एनीमेशन (वापस आ गया) 🌟 */
+        /* 🌟 आपका ओरिजिनल सोशल मीडिया होवर एनीमेशन 🌟 */
         .social-section { text-align: center; margin: 40px auto; padding: 0 20px; }
         .social-text { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 12px; font-style: italic; }
         .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
@@ -98,7 +98,7 @@
 </head>
 <body>
 
-    <!-- 🌟 मास्टर बैनर (Direct Raw Links - अब यह पक्का लोड होगा) -->
+    <!-- 🌟 मास्टर बैनर ('home' प्रोजेक्ट से) -->
     <div class="page-banner-container">
         <img src="https://raw.githubusercontent.com/jatsamajbhadra/home/main/home/image/home_page_banner.png" alt="जाट समाज संस्थान भादरा - मुख्य बैनर">
     </div>
@@ -145,14 +145,16 @@
 
     <div class="gallery-section">
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/jatsamajbhadra/news-events/main/FB_IMG_1783181660134.jpg')">
+            <!-- 🌟 गैलरी 1 ('home' प्रोजेक्ट से सही लिंक) -->
+            <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/jatsamajbhadra/home/main/FB_IMG_1783181660134.jpg')">
                 <div class="gallery-img-box">
-                    <img src="https://raw.githubusercontent.com/jatsamajbhadra/news-events/main/FB_IMG_1783181660134.jpg" loading="lazy" alt="जाट समाज जनसभा भादरा">
+                    <img src="https://raw.githubusercontent.com/jatsamajbhadra/home/main/FB_IMG_1783181660134.jpg" loading="lazy" alt="जाट समाज जनसभा भादरा">
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/jatsamajbhadra/news-events/main/FB_IMG_1783181602074.jpg')">
+            <!-- 🌟 गैलरी 2 ('home' प्रोजेक्ट से सही लिंक) -->
+            <div class="gallery-item" onclick="openLightbox('https://raw.githubusercontent.com/jatsamajbhadra/home/main/FB_IMG_1783181602074.jpg')">
                 <div class="gallery-img-box">
-                    <img src="https://raw.githubusercontent.com/jatsamajbhadra/news-events/main/FB_IMG_1783181602074.jpg" loading="lazy" alt="अंतरराष्ट्रीय जाट दिवस समारोह">
+                    <img src="https://raw.githubusercontent.com/jatsamajbhadra/home/main/FB_IMG_1783181602074.jpg" loading="lazy" alt="अंतरराष्ट्रीय जाट दिवस समारोह">
                 </div>
             </div>
         </div>
@@ -172,7 +174,7 @@
     </div>
 
     <div class="social-section">
-        <p class="social-text">नी সেলিমचे दिए बटन पर क्लिक कर संस्थान के सोशल मीडिया अकाउंट से जुड़ सकते हैं</p>
+        <p class="social-text">नीचे दिए बटन पर क्लिक कर संस्थान के सोशल मीडिया अकाउंट से जुड़ सकते हैं</p>
         <div class="social-links">
             <a href="https://www.facebook.com/share/1HNXS2kwGy/" target="_blank" rel="noopener noreferrer" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/jatsamajbhadra?igsh=aGVvZG82ZXdjdHFw" target="_blank" rel="noopener noreferrer" class="social-icon insta"><i class="fa-brands fa-instagram"></i></a>
