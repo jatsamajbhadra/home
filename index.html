@@ -2,12 +2,12 @@
 <html lang="hi">
 <head>
     <!-- 🔍 जाट समाज भादरा - मुख्य SEO टैग्स -->
-<meta name="description" content="जाट समाज संस्थान, भादरा की आधिकारिक वेबसाइट। RJYF पंजीकरण, बैठक सूचना, न्यूज़, 2026 कैलेंडर और समाज के विकास कार्यों की जानकारी।">
-<meta name="keywords" content="जाट समाज संस्थान भादरा, जाट समाज भादरा, Jat Samaj Sansthan Bhadra, Jat Samaj Bhadra, RJYF Bhadra, jaat Samaj Bhadra, Jaat Samaj Sansthan Bhadra">
-<meta name="author" content="जाट समाज संस्थान भादरा">
+    <meta name="description" content="जाट समाज संस्थान, भादरा की आधिकारिक वेबसाइट। RJYF पंजीकरण, बैठक सूचना, न्यूज़, 2026 कैलेंडर और समाज के विकास कार्यों की जानकारी।">
+    <meta name="keywords" content="जाट समाज संस्थान भादरा, जाट समाज भादरा, Jat Samaj Sansthan Bhadra, Jat Samaj Bhadra, RJYF Bhadra, jaat Samaj Bhadra, Jaat Samaj Sansthan Bhadra">
+    <meta name="author" content="जाट समाज संस्थान भादरा">
 
-<!-- 🎯 कैनोनिकल टैग (गूगल को कोड की जगह लाइव साइट दिखाने के लिए) -->
-<link rel="canonical" href="https://jatsamajbhadra.github.io/">
+    <!-- 🎯 कैनोनिकल टैग (गूगल को कोड की जगह लाइव साइट दिखाने के लिए) -->
+    <link rel="canonical" href="https://jatsamajbhadra.github.io/">
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,15 +19,41 @@
         :root { --brand-green: #11532e; --brand-dark-green: #0b3a20; --brand-gold: #d4af37; --light-bg: #f8fafc; --text-main: #1e293b; --text-muted: #64748b; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
         
-        /* ओरिजिनल बॉडी एनीमेशन */
         body { background-color: var(--light-bg); color: var(--text-main); -webkit-font-smoothing: antialiased; animation: pageFadeIn 1s cubic-bezier(0.15, 0.85, 0.45, 1) forwards; padding-top: 0px !important; margin-top: 0px !important; }
         @keyframes pageFadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
 
-        /* 🌟 मास्टर बैनर */
-        .page-banner-container { background-color: var(--brand-dark-green); border-bottom: 5px solid var(--brand-gold); width: 100%; display: block; text-align: center; margin-bottom: 20px; }
+        /* 🌟 नया वीआईपी टॉप हेडर बार और शाइनिंग बॉर्डर */
+        .top-header-bar { background-color: var(--brand-dark-green); width: 100%; position: relative; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border-bottom: 3px solid transparent; border-image: linear-gradient(90deg, #d4af37, #fff7c2, #d4af37) 1; }
+        .top-header-content { max-width: 1140px; margin: 0 auto; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .top-logo-text { color: #ffffff; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+        .hamburger-menu-btn { background: none; border: none; color: var(--brand-gold); font-size: 22px; cursor: pointer; transition: transform 0.2s ease; display: flex; align-items: center; justify-content: center; }
+        .hamburger-menu-btn:hover { transform: scale(1.1); }
+
+        /* 📢 सिनेमैटिक लाइव न्यूज़ टिकर (टीवी चैनल जैसा इफ़ेक्ट) */
+        .ticker-wrap { background-color: #062313; display: flex; align-items: center; overflow: hidden; padding: 6px 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .ticker-title { background-color: var(--brand-gold); color: var(--brand-dark-green); padding: 2px 8px; font-size: 11px; font-weight: 700; border-radius: 4px; margin-right: 15px; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .ticker { overflow: hidden; white-space: nowrap; flex-grow: 1; position: relative; display: flex; align-items: center; }
+        
+        .ticker-item-holder { display: inline-block; white-space: nowrap; padding-left: 100%; animation: ticker-scroll 25s linear infinite; }
+        .ticker-item-holder:hover { animation-play-state: paused; }
+        @keyframes ticker-scroll { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
+        
+        .ticker-text-link { color: var(--brand-gold); text-decoration: none; font-weight: 700; font-size: 13.5px; transition: color 0.2s ease; }
+        .ticker-text-link:hover { color: #ffffff; text-decoration: underline; }
+
+        /* 📱 आधुनिक स्लाइडिंग साइडबार */
+        .sidebar-menu { position: fixed; top: 0; right: -280px; width: 280px; height: 100%; background-color: var(--brand-dark-green); box-shadow: -5px 0 25px rgba(0,0,0,0.4); z-index: 10000; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 70px 20px 20px 20px; border-left: 3px solid var(--brand-gold); }
+        .sidebar-menu.open { right: 0; }
+        .sidebar-close-btn { position: absolute; top: 15px; right: 20px; color: var(--brand-gold); font-size: 32px; cursor: pointer; font-weight: bold; line-height: 1; }
+        .sidebar-links { display: flex; flex-direction: column; gap: 12px; }
+        .sidebar-link { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 700; padding: 12px 16px; border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.02); }
+        .sidebar-link:hover, .sidebar-link.active { background-color: var(--brand-green); color: var(--brand-gold); transform: translateX(-3px); box-shadow: 3px 3px 10px rgba(0,0,0,0.2); }
+
+        /* 🌟 मास्टर बैनर (सटा हुआ) */
+        .page-banner-container { background-color: var(--brand-dark-green); width: 100%; display: block; text-align: center; margin-bottom: 20px; margin-top: 0 !important; }
         .page-banner-container img { width: 100%; max-width: 1140px; height: auto; display: block; margin: 0 auto; }
 
-        /* 🏛️ VIP नेविगेशन बार */
+        /* 🏛️ सुरक्षित ओरिजिनल नेविगेशन बार */
         .master-nav-container { max-width: 1140px; margin: 0 auto 20px auto; padding: 0 20px; width: 100%; }
         .master-navbar { background: linear-gradient(135deg, var(--brand-dark-green), var(--brand-green)); border-bottom: 4px solid var(--brand-gold); padding: 10px 14px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: space-between; gap: 10px; position: relative; }
         .primary-menu { display: flex; gap: 12px; overflow: hidden; white-space: nowrap; flex-grow: 1; }
@@ -40,7 +66,7 @@
         .more-menu { display: none; position: absolute; top: 100%; right: 0; margin-top: 12px; background: #ffffff; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); padding: 10px; z-index: 1000; flex-direction: column; gap: 8px; border: 2px solid var(--brand-gold); min-width: 200px; }
         .more-menu.show { display: flex; animation: fadeInDown 0.3s ease forwards; }
 
-        /* संस्थान परिचय */
+        /* संस्थान परिचय (स्पेस हूबहू वही रखा गया है) */
         .intro-section { max-width: 1140px; margin: 25px auto; padding: 0 20px; }
         .intro-card { background: #ffffff; border-radius: 16px; padding: 22px 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border-left: 5px solid var(--brand-green); border-top: 1px solid #f1f5f9; border-right: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; transition: all 0.4s ease; }
         .intro-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(17, 83, 46, 0.08); }
@@ -48,14 +74,14 @@
         .intro-text { font-size: 14px; color: #334155; line-height: 1.6; text-align: justify; }
         .intro-highlight { font-weight: 700; color: var(--brand-dark-green); }
 
-        /* इमेज गैलरी */
+        /* इमेज गैलरी (नया ज़ूम इफ़ेक्ट) */
         .gallery-section { max-width: 1140px; margin: 30px auto; padding: 0 20px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
         .gallery-item { background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.4s cubic-bezier(0.15, 0.85, 0.45, 1); }
         .gallery-item:hover { transform: translateY(-6px); box-shadow: 0 15px 30px rgba(17,83,46,0.1); border-color: var(--brand-green); }
         .gallery-img-box { width: 100%; height: 230px; overflow: hidden; }
-        .gallery-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .gallery-item:hover .gallery-img-box img { transform: scale(1.05); }
+        .gallery-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.15, 0.85, 0.45, 1); }
+        .gallery-item:hover .gallery-img-box img { transform: scale(1.06); }
 
         /* लिंक स्ट्रिप और एनीमेशन */
         .link-strip { background: linear-gradient(135deg, #11532e, #1a7442); padding: 15px 20px; text-align: center; margin: 30px 0; box-shadow: 0 4px 12px rgba(17,83,46,0.12); }
@@ -71,7 +97,7 @@
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 4px solid #ffffff; transition: transform 0.4s ease; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* सोशल मीडिया होवर एनीमेशन */
+        /* सोशल मीडिया */
         .social-section { text-align: center; margin: 40px auto; padding: 0 20px; }
         .social-text { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 12px; font-style: italic; }
         .social-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
@@ -82,11 +108,11 @@
         .social-icon.x { background: #000000; }
         .social-icon:hover { transform: translateY(-5px) rotate(360deg); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
 
-        /* स्लीक फुटर पट्टी */
+        /* फुटर पट्टी */
         .footer-section { background: #0b3a20; color: #ffffff; padding: 20px; border-top: 4px solid var(--brand-gold); margin-top: 35px; width: 100%; }
         .footer-bottom { text-align: center; }
 
-        /* लाइटबॉक्स पॉपअप मॉडल */
+        /* लाइटबॉक्स */
         .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; display: none; justify-content: center; align-items: center; padding: 20px; }
         .lightbox-img { max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease forwards; }
         @keyframes zoomIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
@@ -100,35 +126,71 @@
             .master-nav-container { padding: 0 8px; margin-top: 5px; margin-bottom: 10px; }
             .master-navbar { padding: 8px 10px; border-radius: 10px; }
             .nav-btn { padding: 6px 10px; font-size: 11.5px; border-radius: 6px; }
+            .top-logo-text { font-size: 14px; }
         }
         ::selection { background: #11532e; color: #fff; }
     </style>
 </head>
 <body>
 
+    <!-- 🌟 नया वीआईपी टॉप हेडर बार + हैमबर्गर मेनू + न्यूज़ टिकर -->
+    <div class="top-header-bar">
+        <div class="top-header-content">
+            <div class="top-logo-text">
+                <i class="fa-solid fa-building-columns" style="color: var(--brand-gold);"></i> जाट समाज संस्थान भादरा
+            </div>
+            <button class="hamburger-menu-btn" onclick="toggleSidebar()" aria-label="मुख्य मेनू">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div class="ticker-wrap">
+            <div class="ticker-title"><i class="fa-solid fa-bullhorn"></i> नवीनतम सूचना</div>
+            <div class="ticker" id="live-news-ticker">
+                <div class="ticker-item-holder" id="ticker-holder">
+                    <span style="color: #ffffff; font-size: 13.5px;">ताज़ा समाचार लोड हो रहे हैं...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📱 स्लाइडिंग साइडबार मेनू (दाईं तरफ से आने वाला) -->
+    <div class="sidebar-menu" id="sidebarMenu">
+        <span class="sidebar-close-btn" onclick="toggleSidebar()">&times;</span>
+        <div class="sidebar-links">
+            <a href="index.html" class="sidebar-link active"><i class="fa-solid fa-house"></i> होम</a>
+            <a href="rjyf.html" class="sidebar-link"><i class="fa-solid fa-users-gear"></i> RJYF</a>
+            <a href="meetings.html" class="sidebar-link"><i class="fa-solid fa-calendar-check"></i> बैठक सूचना</a>
+            <a href="news-events.html" class="sidebar-link"><i class="fa-solid fa-newspaper"></i> News & Events</a>
+            <a href="calendar.html" class="sidebar-link"><i class="fa-solid fa-calendar-days"></i> जाट कैलेंडर</a>
+            <a href="contact.html" class="sidebar-link"><i class="fa-solid fa-address-book"></i> Contact Us</a>
+        </div>
+    </div>
+
+    <!-- 🌟 मुख्य बैनर (टॉप बार से सटा हुआ) -->
     <div class="page-banner-container">
         <img src="image/home_page_banner.png" alt="जाट समाज संस्थान भादरा - मुख्य बैनर">
     </div>
 
+    <!-- 🏛️ सुरक्षित और सुधारी गई ओरिजिनल नेविगेशन बार (नो न्यू टैब) -->
     <div class="master-nav-container">
         <nav class="master-navbar" id="master-navbar">
             <div class="primary-menu" id="primary-menu">
-                <a href="https://sites.google.com/view/jatsamajbhadra/" target="jatsamaj_site" class="nav-btn active">
+                <a href="index.html" class="nav-btn active">
                     <i class="fa-solid fa-house"></i> होम
                 </a>
-                <a href="https://sites.google.com/view/jatsamajbhadra/rjyf" target="jatsamaj_site" class="nav-btn">
+                <a href="rjyf.html" class="nav-btn">
                     <i class="fa-solid fa-users-gear"></i> RJYF
                 </a>
-                <a href="https://sites.google.com/view/jatsamajbhadra/meetings" target="jatsamaj_site" class="nav-btn">
+                <a href="meetings.html" class="nav-btn">
                     <i class="fa-solid fa-calendar-check"></i> बैठक सूचना
                 </a>
-                <a href="https://sites.google.com/view/jatsamajbhadra/news-events" target="jatsamaj_site" class="nav-btn">
+                <a href="news-events.html" class="nav-btn">
                     <i class="fa-solid fa-newspaper"></i> News & Events
                 </a>
-                <a href="https://sites.google.com/view/jatsamajbhadra/jat-calendar" target="jatsamaj_site" class="nav-btn">
+                <a href="calendar.html" class="nav-btn">
                     <i class="fa-solid fa-calendar-days"></i> 📅 जाट कैलेंडर
                 </a>
-                <a href="https://sites.google.com/view/jatsamajbhadra/contact-us" target="jatsamaj_site" class="nav-btn">
+                <a href="contact.html" class="nav-btn">
                     <i class="fa-solid fa-address-book"></i> Contact Us
                 </a>
             </div>
@@ -149,16 +211,17 @@
         </div>
     </div>
 
+    <!-- 🖼️ गैलरी सेक्शन (अपडेटेड इमेज पाथ और फोल्डर स्ट्रक्चर) -->
     <div class="gallery-section">
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox('FB_IMG_1783181660134.jpg')">
+            <div class="gallery-item" onclick="openLightbox('image/home_gallery_01.jpg')">
                 <div class="gallery-img-box">
-                    <img src="FB_IMG_1783181660134.jpg" loading="lazy" alt="जाट समाज जनसभा भादरा">
+                    <img src="image/home_gallery_01.jpg" loading="lazy" alt="जाट समाज जनसभा भादरा">
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('FB_IMG_1783181602074.jpg')">
+            <div class="gallery-item" onclick="openLightbox('image/home_gallery_02.jpg')">
                 <div class="gallery-img-box">
-                    <img src="FB_IMG_1783181602074.jpg" loading="lazy" alt="अंतरराष्ट्रीय जाट दिवस समारोह">
+                    <img src="image/home_gallery_02.jpg" loading="lazy" alt="अंतरराष्ट्रीय जाट दिवस समारोह">
                 </div>
             </div>
         </div>
@@ -204,6 +267,54 @@
     </div>
 
     <script>
+        // 🛠️ साइडबार ओपन-क्लोज जावास्क्रिप्ट
+        function toggleSidebar() {
+            document.getElementById('sidebarMenu').classList.toggle('open');
+        }
+
+        // 📢 डायनामिक जावास्क्रिप्ट (गिटहब news.json से ऑटोमैटिक लाइव न्यूज़ फेच करने के लिए)
+        async function loadLiveNews() {
+            try {
+                const response = await fetch('news.json');
+                if (!response.ok) throw new Error('फ़ाइल लोड नहीं हो सकी');
+                const data = await response.json();
+                
+                let newsItems = [];
+                if (Array.isArray(data)) {
+                    newsItems = data;
+                } else if (data.news && Array.isArray(data.news)) {
+                    newsItems = data.news;
+                }
+                
+                const holder = document.getElementById('ticker-holder');
+                if (newsItems.length > 0) {
+                    holder.innerHTML = '';
+                    newsItems.forEach((item, index) => {
+                        const headline = item.title || item.heading || item;
+                        const span = document.createElement('span');
+                        span.innerHTML = `<a href="news-events.html" class="ticker-text-link">${headline}</a>`;
+                        holder.appendChild(span);
+                        
+                        // समाचारों के बीच सुंदर गैप स्टार सेपरेटर
+                        if (index < newsItems.length - 1) {
+                            const separator = document.createElement('span');
+                            separator.style.color = '#ffffff';
+                            separator.style.margin = '0 40px';
+                            separator.innerHTML = ' • ';
+                            holder.appendChild(separator);
+                        }
+                    });
+                } else {
+                    holder.innerHTML = '<span style="color: #ffffff; font-size: 13.5px;">वर्तमान में कोई नई घोषणा उपलब्ध नहीं है।</span>';
+                }
+            } catch (error) {
+                console.error('न्यूज़ टिकर लोड एरर:', error);
+                document.getElementById('ticker-holder').innerHTML = '<span style="color: #ff8a8a; font-size: 13.5px;">नवीनतम सूचनाएं देखने के लिए न्यूज़ पेज पर जाएं।</span>';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', loadLiveNews);
+
         function openLightbox(imgUrl) {
             document.getElementById('lightboxTarget').src = imgUrl;
             document.getElementById('imageLightbox').style.display = 'flex';
