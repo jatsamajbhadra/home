@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <!-- 🔍 जाट समाज भादरा - मुख्य SEO टैग्स -->
     <meta name="description" content="जाट समाज संस्थान, भादरा की आधिकारिक वेबसाइट। RJYF पंजीकरण, बैठक सूचना, न्यूज़, 2026 कैलेंडर और समाज के विकास कार्यों की जानकारी।">
     <meta name="keywords" content="जाट समाज संस्थान भादरा, जाट समाज भादरा, Jat Samaj Sansthan Bhadra, Jat Samaj Bhadra, RJYF Bhadra, jaat Samaj Bhadra, Jaat Samaj Sansthan Bhadra">
     <meta name="author" content="जाट समाज संस्थान भादरा">
 
-    <!-- 🎯 कैनोनिकल टैग (गूगल को कोड की जगह लाइव साइट दिखाने के लिए) -->
     <link rel="canonical" href="https://jatsamajbhadra.github.io/">
     
     <meta charset="UTF-8">
@@ -14,7 +12,8 @@
     <title>जाट समाज संस्थान भादरा - मुख्य होम पेज</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
     <style>
-        html, body { scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; }
+        /* 🛠️ सुधार 1: overflow-x: hidden जोड़कर जूम-आउट करने पर साइडबार दिखने वाली समस्या को हमेशा के लिए लॉक कर दिया गया है */
+        html, body { scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; overflow-x: hidden !important; position: relative; width: 100%; }
         html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
         :root { --brand-green: #11532e; --brand-dark-green: #0b3a20; --brand-gold: #d4af37; --light-bg: #f8fafc; --text-main: #1e293b; --text-muted: #64748b; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
@@ -29,7 +28,7 @@
         .hamburger-menu-btn { background: none; border: none; color: var(--brand-gold); font-size: 22px; cursor: pointer; transition: transform 0.2s ease; display: flex; align-items: center; justify-content: center; }
         .hamburger-menu-btn:hover { transform: scale(1.1); }
 
-        /* 📢 सिनेमैटिक लाइव न्यूज़ टिकर (टीवी चैनल जैसा इफ़ेक्ट) */
+        /* 📢 सिनेमैटिक लाइव न्यूज़ टिकर */
         .ticker-wrap { background-color: #062313; display: flex; align-items: center; overflow: hidden; padding: 6px 20px; border-top: 1px solid rgba(255,255,255,0.05); }
         .ticker-title { background-color: var(--brand-gold); color: var(--brand-dark-green); padding: 2px 8px; font-size: 11px; font-weight: 700; border-radius: 4px; margin-right: 15px; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         .ticker { overflow: hidden; white-space: nowrap; flex-grow: 1; position: relative; display: flex; align-items: center; }
@@ -66,7 +65,7 @@
         .more-menu { display: none; position: absolute; top: 100%; right: 0; margin-top: 12px; background: #ffffff; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); padding: 10px; z-index: 1000; flex-direction: column; gap: 8px; border: 2px solid var(--brand-gold); min-width: 200px; }
         .more-menu.show { display: flex; animation: fadeInDown 0.3s ease forwards; }
 
-        /* संस्थान परिचय (स्पेस हूबहू वही रखा गया है) */
+        /* संस्थान परिचय (स्पेस हूबहू वही रखा गया है, कोई छेड़छाड़ नहीं) */
         .intro-section { max-width: 1140px; margin: 25px auto; padding: 0 20px; }
         .intro-card { background: #ffffff; border-radius: 16px; padding: 22px 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border-left: 5px solid var(--brand-green); border-top: 1px solid #f1f5f9; border-right: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; transition: all 0.4s ease; }
         .intro-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(17, 83, 46, 0.08); }
@@ -133,7 +132,6 @@
 </head>
 <body>
 
-    <!-- 🌟 नया वीआईपी टॉप हेडर बार + हैमबर्गर मेनू + न्यूज़ टिकर -->
     <div class="top-header-bar">
         <div class="top-header-content">
             <div class="top-logo-text">
@@ -153,7 +151,6 @@
         </div>
     </div>
 
-    <!-- 📱 स्लाइडिंग साइडबार मेनू (दाईं तरफ से आने वाला) -->
     <div class="sidebar-menu" id="sidebarMenu">
         <span class="sidebar-close-btn" onclick="toggleSidebar()">&times;</span>
         <div class="sidebar-links">
@@ -161,17 +158,15 @@
             <a href="rjyf.html" class="sidebar-link"><i class="fa-solid fa-users-gear"></i> RJYF</a>
             <a href="meetings.html" class="sidebar-link"><i class="fa-solid fa-calendar-check"></i> बैठक सूचना</a>
             <a href="news-events.html" class="sidebar-link"><i class="fa-solid fa-newspaper"></i> News & Events</a>
-            <a href="calendar.html" class="sidebar-link"><i class="fa-solid fa-calendar-days"></i> जाट कैलेंडर</a>
+            <a href="calendar-2026.html" class="sidebar-link"><i class="fa-solid fa-calendar-days"></i> जाट कैलेंडर</a>
             <a href="contact.html" class="sidebar-link"><i class="fa-solid fa-address-book"></i> Contact Us</a>
         </div>
     </div>
 
-    <!-- 🌟 मुख्य बैनर (टॉप बार से सटा हुआ) -->
     <div class="page-banner-container">
         <img src="image/home_page_banner.png" alt="जाट समाज संस्थान भादरा - मुख्य बैनर">
     </div>
 
-    <!-- 🏛️ सुरक्षित और सुधारी गई ओरिजिनल नेविगेशन बार (नो न्यू टैब) -->
     <div class="master-nav-container">
         <nav class="master-navbar" id="master-navbar">
             <div class="primary-menu" id="primary-menu">
@@ -187,7 +182,7 @@
                 <a href="news-events.html" class="nav-btn">
                     <i class="fa-solid fa-newspaper"></i> News & Events
                 </a>
-                <a href="calendar.html" class="nav-btn">
+                <a href="calendar-2026.html" class="nav-btn">
                     <i class="fa-solid fa-calendar-days"></i> 📅 जाट कैलेंडर
                 </a>
                 <a href="contact.html" class="nav-btn">
@@ -206,12 +201,11 @@
             <h2 class="intro-title"><i class="fa-solid fa-building-columns"></i> संस्थान परिचय:</h2>
             <p class="intro-text">
                 <span class="intro-highlight">जाट समाज संस्थान, भादरा</span> सामाजिक एकता, शिक्षा, संस्कृति एवं सामुदायिक विकास को समर्पित एक प्रतिष्ठित संस्था है। संस्थान का उद्देश्य जाट समाज के सामाजिक, शैक्षणिक, सांस्कृतिक एवं आर्थिक उत्थान के लिए सार्थक प्रयास करना तथा समाज में भाईचारे, सहयोग और जागरूकता को बढ़ावा देना है।<br><br>
-                संस्थान द्वारा समय-समय पर प्रतिभा सम्मान समारोह, शैक्षणिक प्रोत्साहन कार्यक्रम, सांस्कृतिक आयोजन एवं जनकल्याणकारी गतिविधियों का आयोजन किया जाता है। हम समाज की गौरवशाली परंपराओं और मूल्यों को सुरक्षित रखते हुए नई पीढ़ी को शिक्षा, नेतृत्व और सामाजिक जिम्मेदारी के लिए प्रेरित करने का कार्य करते हैं। जाट समाज संस्थान, भादरा समाज सेवा, संगठन और विकास के माध्यम से एक स्वस्थ एवं प्रगतिशील समाज के निर्माण हेतु निरंतर प्रतिबद्ध है।
+                संस्थान द्वारा समय-समय पर प्रतिभा सम्मान समारोह, शैक्षणिक प्रोत्साहन कार्यक्रम, सांस्कृतिक आयोजन एवं जनकल्याणकारी गतिविधियों का आयोजन किया जाता है। हम समाज की गौरवशाली परंपराओं और मूल्यों को सुरक्षित रखते हुए नई पीढ़ी को शिक्षा, leadership और सामाजिक जिम्मेदारी के लिए प्रेरित करने का कार्य करते हैं। जाट समाज संस्थान, भादरा समाज सेवा, संगठन और विकास के माध्यम से एक स्वस्थ एवं प्रगतिशील समाज के निर्माण हेतु निरंतर प्रतिबद्ध है।
             </p>
         </div>
     </div>
 
-    <!-- 🖼️ गैलरी सेक्शन (अपडेटेड इमेज पाथ और फोल्डर स्ट्रक्चर) -->
     <div class="gallery-section">
         <div class="gallery-grid">
             <div class="gallery-item" onclick="openLightbox('image/home_gallery_01.jpg')">
@@ -234,7 +228,7 @@
     </div>
 
     <div class="video-section">
-        <h3 class="video-title"><i class="fa-solid fa-video"></i> किसान मसीहा चौधरी कुंभाराम आर्य - शार्ट फिल्म</h3>
+        <h3 class="video-title"><i class="fa-solid fa-video"></i> किसान मसीहा चौधरी कुंभारام आर्य - शार्ट फिल्म</h3>
         <div class="video-wrapper">
             <iframe src="https://www.youtube.com/embed/QJrT_F44jzE" title="YouTube video player" loading="lazy" allowfullscreen></iframe>
         </div>
@@ -267,49 +261,61 @@
     </div>
 
     <script>
-        // 🛠️ साइडबार ओपन-क्लोज जावास्क्रिप्ट
         function toggleSidebar() {
             document.getElementById('sidebarMenu').classList.toggle('open');
         }
 
-        // 📢 डायनामिक जावास्क्रिप्ट (गिटहब news.json से ऑटोमैटिक लाइव न्यूज़ फेच करने के लिए)
+        // 📢 सुधार 3: इंटेलिजेंट मल्टी-सोर्स कम्बाइंड टिकर (News और Meetings दोनों की टॉप हेडलाइंस एक साथ लोड करेगा)
         async function loadLiveNews() {
+            let combinedNews = [];
+            
+            // 1. न्यूज़ फाइल से टॉप हेडलाइन उठाना
             try {
-                const response = await fetch('news.json');
-                if (!response.ok) throw new Error('फ़ाइल लोड नहीं हो सकी');
-                const data = await response.json();
-                
-                let newsItems = [];
-                if (Array.isArray(data)) {
-                    newsItems = data;
-                } else if (data.news && Array.isArray(data.news)) {
-                    newsItems = data.news;
+                const responseNews = await fetch('news.json');
+                if (responseNews.ok) {
+                    const dataNews = await responseNews.json();
+                    const newsItems = Array.isArray(dataNews) ? dataNews : (dataNews.news || []);
+                    if (newsItems.length > 0) {
+                        const topNewsHeadline = newsItems[0].title || newsItems[0].heading || newsItems[0];
+                        combinedNews.push(`<a href="news-events.html" class="ticker-text-link">🔥 ताज़ा ख़बर: ${topNewsHeadline}</a>`);
+                    }
                 }
-                
-                const holder = document.getElementById('ticker-holder');
-                if (newsItems.length > 0) {
-                    holder.innerHTML = '';
-                    newsItems.forEach((item, index) => {
-                        const headline = item.title || item.heading || item;
-                        const span = document.createElement('span');
-                        span.innerHTML = `<a href="news-events.html" class="ticker-text-link">${headline}</a>`;
-                        holder.appendChild(span);
-                        
-                        // समाचारों के बीच सुंदर गैप स्टार सेपरेटर
-                        if (index < newsItems.length - 1) {
-                            const separator = document.createElement('span');
-                            separator.style.color = '#ffffff';
-                            separator.style.margin = '0 40px';
-                            separator.innerHTML = ' • ';
-                            holder.appendChild(separator);
-                        }
-                    });
-                } else {
-                    holder.innerHTML = '<span style="color: #ffffff; font-size: 13.5px;">वर्तमान में कोई नई घोषणा उपलब्ध नहीं है।</span>';
+            } catch (error) { console.error('न्यूज़ फ़ेच एरर:', error); }
+
+            // 2. बैठक फाइल से टॉप हेडलाइन उठाना
+            try {
+                const responseMeetings = await fetch('meetings.json');
+                if (responseMeetings.ok) {
+                    const dataMeetings = await responseMeetings.json();
+                    const meetingItems = Array.isArray(dataMeetings) ? dataMeetings : (dataMeetings.meetings || []);
+                    if (meetingItems.length > 0) {
+                        const topMeetingHeadline = meetingItems[0].title || meetingItems[0].heading || meetingItems[0];
+                        combinedNews.push(`<a href="meetings.html" class="ticker-text-link">📅 बैठक सूचना: ${topMeetingHeadline}</a>`);
+                    }
                 }
-            } catch (error) {
-                console.error('न्यूज़ टिकर लोड एरर:', error);
-                document.getElementById('ticker-holder').innerHTML = '<span style="color: #ff8a8a; font-size: 13.5px;">नवीनतम सूचनाएं देखने के लिए न्यूज़ पेज पर जाएं।</span>';
+            } catch (error) { console.error('बैठक सूचना फ़ेच एरर:', error); }
+
+            // टिकर पर दोनों खबरों को सजाकर लाइव चालू करना
+            const holder = document.getElementById('ticker-holder');
+            if (combinedNews.length > 0) {
+                holder.innerHTML = '';
+                combinedNews.forEach((htmlContent, index) => {
+                    const span = document.createElement('span');
+                    span.innerHTML = htmlContent;
+                    holder.appendChild(span);
+                    
+                    // दोनों खबरों के बीच में वीआईपी डॉट सेपरेटर लगाना
+                    if (index < combinedNews.length - 1) {
+                        const separator = document.createElement('span');
+                        separator.style.color = '#ffffff';
+                        separator.style.margin = '0 50px';
+                        separator.innerHTML = ' • ';
+                        holder.appendChild(separator);
+                    }
+                });
+            } else {
+                // अगर गिटहब पर दोनों फाइलें अभी खाली या नई हैं, तो यह सेफ फॉलबैक सन्देश दिखेगा
+                holder.innerHTML = '<span style="color: #ffffff; font-size: 13.5px;"><a href="news-events.html" class="ticker-text-link">जाट समाज संस्थान, भादरा की आधिकारिक वेबसाइट पर आपका स्वागत है।</a></span>';
             }
         }
 
