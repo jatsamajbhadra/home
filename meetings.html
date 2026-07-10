@@ -65,7 +65,7 @@
 
         .main-container { max-width: 1140px; margin: 0 auto; padding: 0 20px; width: 100%; }
 
-        /* 🏛️ VIP डेस्कटॉप नेविगेशन बार स्टाइल */
+        /* 🏛️ VIP मास्टर नेविगेशन बार स्टाइल */
         .master-nav-container { max-width: 1140px; margin: 0 auto 20px auto; padding: 0 20px; width: 100%; }
         .master-navbar { background: linear-gradient(135deg, var(--brand-dark-green), var(--brand-green)); border-bottom: 4px solid var(--brand-gold); padding: 10px 14px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: space-between; gap: 10px; position: relative; }
         .primary-menu { display: flex; gap: 12px; overflow: hidden; white-space: nowrap; flex-grow: 1; }
@@ -133,11 +133,13 @@
         .footer-section { background: #0b3a20; color: #ffffff; padding: 20px; border-top: 4px solid var(--brand-gold); margin-top: 35px; width: 100%; }
         .footer-bottom { text-align: center; }
 
-        /* 📱 मोबाइल रिस्पॉन्सिव इंजन (क्लीनअप एवं विजुअल सुधार) */
+        /* 📱 मोबाइल रिस्पॉन्सिव इंजन (अब होम और RJYF की तरह नेविगेशन पट्टी यहाँ भी लाइव रहेगी) */
         @media (max-width: 650px) {
             .main-container { padding: 0 8px; margin-top: 5px; margin-bottom: 10px; }
-            /* 👑 वीआईपी बदलाव: मोबाइल पर फालतू दिखने वाली नीचे की डेस्कटॉप पट्टी को छुपाया */
-            .master-nav-container { display: none !important; }
+            /* ✨ सुधार: मोबाइल पर हाइड करने के बजाय इसे RJYF की तरह ही रिस्पॉन्सिव अलाइन किया */
+            .master-nav-container { padding: 0 8px; margin-top: 5px; margin-bottom: 10px; display: block !important; }
+            .master-navbar { padding: 8px 10px; border-radius: 10px; }
+            .nav-btn { padding: 6px 10px; font-size: 11.5px; border-radius: 6px; }
             .top-logo-text { font-size: 14px; }
             .content-wrapper { max-width: 100%; }
             .notice-card { padding: 16px 14px; margin-bottom: 10px; border-radius: 10px; }
@@ -189,7 +191,7 @@
         <img src="image/meeting_banner.png" alt="आधिकारिक बैठक सूचना बोर्ड - जाट समाज संस्थान भादरा">
     </div>
 
-    <!-- 🏛️ VIP मास्टर नेविगेशन बार (डेस्कटॉप पर दिखेगी, मोबाइल पर ऑटो-हाइड) -->
+    <!-- 🏛️ VIP मास्टर नेविगेशन बार (अब मोबाइल और डेस्कटॉप दोनों पर सिंक रहेगी) -->
     <div class="master-nav-container">
         <nav class="master-navbar" id="master-navbar">
             <div class="primary-menu" id="primary-menu">
@@ -264,7 +266,7 @@
         function toggleSidebar() { document.getElementById('sidebarMenu').classList.toggle('open'); }
         function closeSidebar() { document.getElementById('sidebarMenu').classList.remove('open'); }
 
-        // 2. मूल डेटा रेंडरिंग और लिस्ट व्यू जनरेशन
+        // 2. मूल डेटा रेंडरिंग और लिस्ट VIEW जनरेशन
         const listView = document.getElementById('list-view');
         const detailView = document.getElementById('detail-view');
         const detailContent = document.getElementById('detail-content');
@@ -315,8 +317,8 @@
             detailView.style.display = 'none';
             listView.style.display = 'block';
             if(pageBanner) pageBanner.style.display = 'block';
-            // सिर्फ डेस्कटॉप पर ही वापस बैक आने पर मास्टर नेव पट्टी दिखे
-            if(masterNavbar && window.innerWidth > 650) masterNavbar.style.display = 'block';
+            // ✨ सुधार: बैक आने पर मोबाइल और डेस्कटॉप दोनों पर मास्टर नेव पट्टी दिखाई देगी
+            if(masterNavbar) masterNavbar.style.display = 'block';
         });
 
         // 4. प्रायोरिटी+ मेनू ओवरफ्लो जावास्क्रिप्ट लॉजिक
@@ -340,7 +342,7 @@
         window.addEventListener('resize', adaptNav);
         window.addEventListener('load', () => {
             renderListView();
-            if (window.innerWidth > 650) adaptNav();
+            adaptNav(); // ✨ मोबाइल पर भी नेव बार अनुकूलन चालू रखा
         });
 
         function toggleMoreMenu(event) { moreMenu.classList.toggle('show'); event.stopPropagation(); }
